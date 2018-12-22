@@ -21,8 +21,8 @@ public class PropertiesUse {
 //		loadingPropertiesAsXml();
 //		defaultropertiesExample();
 //		defaultropertiesFullExample();
-//		systemPropertiesExample();
-		environmentVariablesExample();
+		systemPropertiesExample();
+//		environmentVariablesExample();
 	}
 
 	private static void propertiesExample() {
