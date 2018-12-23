@@ -14,9 +14,17 @@ public class BankAccount {
 	 */
 	private int balance;
 
+	private int id;
+
 	public BankAccount(int startBalance) {
 		super();
 		this.balance = startBalance;
+	}
+
+	public BankAccount(int balance, int id) {
+		super();
+		this.balance = balance;
+		this.id = id;
 	}
 
 	public int getBalance() {

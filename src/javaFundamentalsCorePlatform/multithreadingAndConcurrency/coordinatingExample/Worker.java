@@ -1,8 +1,13 @@
 package javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample;
 
-public class Worker implements Runnable {
+import javaFundamentalsCorePlatform.runtimeTypeAndReflection.TaskWorker;
+
+public class Worker implements Runnable, TaskWorker {
 
 	private BankAccount account;
+
+	public Worker() {
+	}
 
 	public Worker(BankAccount account) {
 		super();
@@ -23,6 +28,19 @@ public class Worker implements Runnable {
 //			int endBalance = account.getBalance();
 		}
 
+	}
+
+	public void sayHello() {
+		System.out.println("Hi from " + this.getClass());
+	}
+
+	@Override
+	public void setBankAccount(Object bankAccount) {
+		if (BankAccount.class.isInstance(bankAccount)) {
+			this.account = (BankAccount) bankAccount;
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 
 }
