@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -125,7 +126,7 @@ public class Main {
 		Collections.sort(list2, new MyComparator());
 		list2.forEach(m -> System.out.println(m.toString()));
 
-		// Example 3 with a reverse comparason
+		// Example 3 with a reverse comparison
 		System.out.println("MySimpleClass List with a custom comparator which compare on label");
 		List<MySimpleClass> list3 = new ArrayList<>();
 
@@ -136,6 +137,60 @@ public class Main {
 		Collections.sort(list3, new ReverseComparator<>(new MyComparator()));
 		list3.forEach(m -> System.out.println(m.toString()));
 
+		// Example 4 with a reverse comparison
+		System.out.println("MySimpleClass List with a comparator as a generic parameter");
+		List<MySimpleClass> list4 = new ArrayList<>();
+
+		list4.add(new MySimpleClass("aaa", "22"));
+		list4.add(new MySimpleClass("rrr", "11"));
+		list4.add(new MySimpleClass("ccc", "33"));
+
+		MySimpleClass objWithSmallestValue = minValue(list4, new MyComparator());
+		System.out.println(objWithSmallestValue.toString());
+
+		List<Integer> integers = new ArrayList<>();
+		integers.add(1);
+		integers.add(2);
+		integers.add(3);
+		System.out.println(minValue(integers, Integer::compare));
+
+//		// Example 5 with a reverse comparison
+//		System.out.println("MySimpleClass List with a comparator directly writed");
+//		List<MySimpleClass> list5 = new ArrayList<>();
+//
+//		list5.add(new MySimpleClass("aaa", "22"));
+//		list5.add(new MySimpleClass("rrr", "11"));
+//		list5.add(new MySimpleClass("ccc", "33"));
+//
+//		MySimpleClass objWithSmallestValue5 = (MySimpleClass) minValue(list5, new Comparator<MySimpleClass>() {
+//			@Override
+//			public int compare(final MySimpleClass o1, final MySimpleClass o2) {
+//				return o1.compareTo(o2);
+//			}
+//
+//		});
+
+	}
+
+	/**
+	 * We can use T in signature because T is in the scope because of the <T> before
+	 * Return type
+	 * 
+	 * @param list4
+	 * @param myComparator
+	 * @return
+	 */
+	private static <T> T minValue(List<T> list4, Comparator<T> myComparator) {
+		if (list4.isEmpty())
+			throw new IllegalArgumentException("Can't find a minimum in an empty list!");
+		T lowest = list4.get(0);
+		for (int i = 0; i < list4.size(); i++) {
+			final T element = list4.get(i);
+			if (myComparator.compare(element, lowest) < 0) {
+				lowest = element;
+			}
+		}
+		return lowest;
 	}
 
 	private static void mapExample() {
