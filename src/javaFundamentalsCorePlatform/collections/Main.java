@@ -3,8 +3,10 @@ package javaFundamentalsCorePlatform.collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -16,10 +18,10 @@ public class Main {
 //		removalExample();
 //		lambdaListExample();
 //		conversionExample();
-//		comparableExample();
+		comparableExample();
 //		mapExample();
 //		lambdaMapExample();
-		sortedMapExample();
+//		sortedMapExample();
 
 	}
 
@@ -92,6 +94,7 @@ public class Main {
 	}
 
 	private static void comparableExample() {
+		// Example with a class which implement Comparable<MyComparableClass>
 		TreeSet<MyComparableClass> list = new TreeSet<>();
 
 		list.add(new MyComparableClass("aze", "22"));
@@ -101,8 +104,8 @@ public class Main {
 		System.out.println("MyComparableClass define comparaison on value");
 		list.forEach(m -> System.out.println(m.toString()));
 
-		// Example with a custom comparator
-		System.out.println("MySimpleClass with a custom comparator which compare on label");
+		// Example 1 with a custom comparator
+		System.out.println("MySimpleClass TreeSet with a custom comparator which compare on label");
 		TreeSet<MySimpleClass> list1 = new TreeSet<>(new MyComparator());
 
 		list1.add(new MySimpleClass("aze", "22"));
@@ -110,6 +113,28 @@ public class Main {
 		list1.add(new MySimpleClass("bio", "33"));
 
 		list1.forEach(m -> System.out.println(m.toString()));
+
+		// Example 2 with a custom comparator
+		System.out.println("MySimpleClass List with a custom comparator which compare on label");
+		List<MySimpleClass> list2 = new ArrayList<>();
+
+		list2.add(new MySimpleClass("aaa", "22"));
+		list2.add(new MySimpleClass("rrr", "11"));
+		list2.add(new MySimpleClass("ccc", "33"));
+
+		Collections.sort(list2, new MyComparator());
+		list2.forEach(m -> System.out.println(m.toString()));
+
+		// Example 3 with a reverse comparason
+		System.out.println("MySimpleClass List with a custom comparator which compare on label");
+		List<MySimpleClass> list3 = new ArrayList<>();
+
+		list3.add(new MySimpleClass("aaa", "22"));
+		list3.add(new MySimpleClass("rrr", "11"));
+		list3.add(new MySimpleClass("ccc", "33"));
+
+		Collections.sort(list3, new ReverseComparator<>(new MyComparator()));
+		list3.forEach(m -> System.out.println(m.toString()));
 
 	}
 
@@ -122,6 +147,8 @@ public class Main {
 		System.out.println(map.get("99"));
 		System.out.println(map.getOrDefault("99", "default value"));
 
+		map.replaceAll((k, v) -> "new " + v);
+		map.forEach((k, v) -> System.out.println(k + " | " + v));
 	}
 
 	private static void lambdaMapExample() {
@@ -178,17 +205,21 @@ public class Main {
 		while (iterator.hasNext()) {
 			MySimpleClass msc = iterator.next();
 			System.out.println(msc.getLabel() + " | " + msc.getValue());
-			if(msc.getLabel().equals("toberemoved")) {
+			if (msc.getLabel().equals("toberemoved")) {
 				iterator.remove();
 			}
 		}
+
 		// Since Java 5
 		for (MySimpleClass sc : col) {
 			System.out.println(sc.getLabel() + " | " + sc.getValue());
-			if(sc.getLabel().equals("toberemoved")) {
+			if (sc.getLabel().equals("toberemoved")) {
 				// DOESN'T DO THIS:: If we want to add or remove element, use an iterator
 				col.remove(sc);
 			}
 		}
+
+		// Since Java 8 lambda functions
+		col.forEach(sc -> System.out.println(sc.getLabel() + " | " + sc.getValue()));
 	}
 }

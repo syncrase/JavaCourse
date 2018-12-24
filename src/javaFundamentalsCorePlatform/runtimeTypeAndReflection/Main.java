@@ -10,6 +10,12 @@ import javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExa
 import javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.ProcessedBy;
 import javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.WorkHandler;
 
+/**
+ * References : https://www.baeldung.com/java-reflection
+ * 
+ * @author Pierre
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -111,6 +117,8 @@ public class Main {
 		Class<?> workerType = Class.forName(worker);
 		Class<?> targetType = target.getClass();
 		Constructor c = workerType.getConstructor(targetType);
+		// Constructor<?>[] constructors = workerType.getConstructors();
+		// c = constructors[0];
 		Object workerInstance = c.newInstance(target);
 		Method sayHello = workerType.getMethod("sayHello");
 		sayHello.invoke(workerInstance);
