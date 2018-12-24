@@ -3,6 +3,7 @@ package javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingEx
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@WorkHandler(useThreadPool = false )
 public class Main {
 
 	public static void main(String[] args) {

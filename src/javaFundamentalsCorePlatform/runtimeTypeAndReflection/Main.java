@@ -7,11 +7,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 import javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.BankAccount;
+import javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.ProcessedBy;
+import javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.WorkHandler;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 //		Class1 class1 = new Class1();
 		Class2 class2 = new Class2();
@@ -114,10 +115,27 @@ public class Main {
 		Method sayHello = workerType.getMethod("sayHello");
 		sayHello.invoke(workerInstance);
 //		workerInstance.sayHello();
-		
-		// Other way to do the same when a no argument constructor exists and an interface implementation
+
+		// Other way to do the same when a no argument constructor exists and an
+		// interface implementation
 		TaskWorker workerViaInterface = (TaskWorker) workerType.newInstance();
 		workerViaInterface.setBankAccount(target);
-		workerViaInterface.sayHello();
+		// TODO USE ANNOTATION
+		WorkHandler wh = workerType.getAnnotation(WorkHandler.class);
+		ProcessedBy pb = targetType.getAnnotation(ProcessedBy.class);
+		Class<?> annotateWorkerType = pb.value();
+		TaskWorker taskWorker = (TaskWorker) annotateWorkerType.newInstance();
+
+		if (wh.useThreadPool()) {
+//			pool.submit(new Runnable() {
+//				public void run() {
+			workerViaInterface.sayHello();
+//				}
+//			});
+		} else {
+			workerViaInterface.sayHello();
+		}
+
+		// workerViaInterface.sayHello();
 	}
 }

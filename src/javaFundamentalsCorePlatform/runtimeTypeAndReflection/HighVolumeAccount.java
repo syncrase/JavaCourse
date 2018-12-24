@@ -8,8 +8,8 @@ public final class HighVolumeAccount extends BankAccount implements Runnable {
 		super(startBalance);
 	}
 
-	public HighVolumeAccount(int balance, int id) {
-		super(balance, id);
+	public HighVolumeAccount(String id, int balance) {
+		super(id, balance);
 	}
 
 	private int[] readDailyReposits() {

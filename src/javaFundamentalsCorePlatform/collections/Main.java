@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class Collections {
+public class Main {
 
 	public static void main(String[] args) {
 //		removalExample();
@@ -135,8 +136,7 @@ public class Collections {
 		map.forEach((k, v) -> System.out.println(k + " | " + v));
 
 	}
-	
-	
+
 	private static void sortedMapExample() {
 		SortedMap<String, String> map = new TreeMap<>();
 		map.put("22", "aze");
@@ -145,7 +145,7 @@ public class Collections {
 		map.put("44", "xcxv");
 		map.put("66", "uyt");
 		map.put("55", "rfv");
-		
+
 		map.forEach((k, v) -> System.out.println(k + " | " + v));
 
 		System.out.println("Return of head map from the map");
@@ -159,8 +159,36 @@ public class Collections {
 		System.out.println("Return of sub map from the map");
 		SortedMap<String, String> sMap = map.subMap("22", "44");
 		sMap.forEach((k, v) -> System.out.println(k + " | " + v));
-		
-		
+
 	}
 
+	private static void iterateOverCollections() {
+		MySimpleClass msc1 = new MySimpleClass("label1", "value1");
+		MySimpleClass msc2 = new MySimpleClass("label2", "value2");
+		MySimpleClass msc3 = new MySimpleClass("label3", "value3");
+
+		Collection<MySimpleClass> col = new ArrayList<>();
+		col.add(msc1);
+		col.add(msc2);
+		col.add(msc3);
+
+		// Multiple ways to do the same thing
+		// Traditionnal way: using the iterator
+		final Iterator<MySimpleClass> iterator = col.iterator();
+		while (iterator.hasNext()) {
+			MySimpleClass msc = iterator.next();
+			System.out.println(msc.getLabel() + " | " + msc.getValue());
+			if(msc.getLabel().equals("toberemoved")) {
+				iterator.remove();
+			}
+		}
+		// Since Java 5
+		for (MySimpleClass sc : col) {
+			System.out.println(sc.getLabel() + " | " + sc.getValue());
+			if(sc.getLabel().equals("toberemoved")) {
+				// DOESN'T DO THIS:: If we want to add or remove element, use an iterator
+				col.remove(sc);
+			}
+		}
+	}
 }
