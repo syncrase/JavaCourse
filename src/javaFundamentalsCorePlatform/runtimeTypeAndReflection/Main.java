@@ -20,7 +20,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
-//		Class1 class1 = new Class1();
+		// basicsUse();
+		fullExampleWithGenerics();
+	}
+
+	private static void basicsUse() {
+		// Class1 class1 = new Class1();
 		Class2 class2 = new Class2();
 		showName(class2.getClass());
 		showName(class2.getClass().getSuperclass());
@@ -61,10 +66,10 @@ public class Main {
 		Class<?> theClass = hvAccount.getClass();
 		Field[] fields = theClass.getFields();
 		Field[] declaredFields = theClass.getDeclaredFields();
-//		displayFields(fields);
-//		displayFields(declaredFields);
+		// displayFields(fields);
+		// displayFields(declaredFields);
 
-//		theClass = hvAccount.getClass();
+		// theClass = hvAccount.getClass();
 		Method[] methods = theClass.getMethods();
 		Method[] declaredMethods = theClass.getDeclaredMethods();
 		displayMethods(methods);
@@ -87,7 +92,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private static void displayMethods(Method[] methods) {
@@ -146,8 +150,11 @@ public class Main {
 
 		// workerViaInterface.sayHello();
 	}
-	
-	
-	
-	
+
+	private static void fullExampleWithGenerics() {
+		Injector injector = new Injector().with("Helloworld");
+		Logger logger = injector.newInstance(Logger.class);
+		logger.log();
+	}
+
 }

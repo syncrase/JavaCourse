@@ -1,5 +1,6 @@
 package javaFundamentalsCorePlatform.collections;
 
+import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -19,11 +20,10 @@ public class Main {
 //		removalExample();
 //		lambdaListExample();
 //		conversionExample();
-		comparableExample();
+//		comparableExample();
 //		mapExample();
 //		lambdaMapExample();
 //		sortedMapExample();
-
 	}
 
 	private static void removalExample() {
@@ -277,4 +277,5 @@ public class Main {
 		// Since Java 8 lambda functions
 		col.forEach(sc -> System.out.println(sc.getLabel() + " | " + sc.getValue()));
 	}
+
 }
