@@ -84,6 +84,8 @@ public class Main {
 
 		}
 
+		// Callable can return a value
+		// and can throw a checked exception
 		for (Future<Integer> result : results) {
 			try {
 				int value = result.get();// blocks until return value available
