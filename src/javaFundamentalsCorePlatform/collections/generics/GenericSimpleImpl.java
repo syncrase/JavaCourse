@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.collections;
+package javaFundamentalsCorePlatform.collections.generics;
 
 public class GenericSimpleImpl<T> {
 
