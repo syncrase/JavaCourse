@@ -2,7 +2,13 @@ package javaFundamentalsCorePlatform.collections;
 
 import java.util.Comparator;
 
-public class MyComparator implements Comparator<MySimpleClass> {
+/**
+ * Compare on labels
+ * 
+ * @author Pierre
+ *
+ */
+public class SimpleClassComparator implements Comparator<MySimpleClass> {
 
 	@Override
 	public int compare(MySimpleClass arg0, MySimpleClass arg1) {

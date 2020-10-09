@@ -10,26 +10,6 @@ public class MySimpleClass {
 		this.value = value;
 	}
 
-//	/* Compare the label field
-//	 * @see java.lang.Object#equals(java.lang.Object)
-//	 */
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		MyClass other = (MyClass) obj;
-//		if (label == null) {
-//			if (other.label != null)
-//				return false;
-//		} else if (!label.equals(other.label))
-//			return false;
-//		return true;
-//	}
-
 	/*
 	 * Compare the value field
 	 * 
@@ -44,9 +24,8 @@ public class MySimpleClass {
 		if (getClass() != obj.getClass())
 			return false;
 		MySimpleClass other = (MySimpleClass) obj;
-		if (value == null) {
-			if (other.value != null)
-				return false;
+		if (value == null && other.value != null) {
+			return false;
 		} else if (!value.equals(other.value))
 			return false;
 		return true;
@@ -72,6 +51,5 @@ public class MySimpleClass {
 	public void setValue(String value) {
 		this.value = value;
 	}
-
 
 }

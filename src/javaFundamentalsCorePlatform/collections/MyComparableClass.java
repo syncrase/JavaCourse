@@ -1,5 +1,11 @@
 package javaFundamentalsCorePlatform.collections;
 
+/**
+ * Compared by value
+ * 
+ * @author Pierre
+ *
+ */
 public class MyComparableClass implements Comparable<MyComparableClass> {
 
 	private String label, value;

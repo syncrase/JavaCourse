@@ -1,6 +1,5 @@
 package javaFundamentalsCorePlatform.collections;
 
-import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,13 +16,11 @@ import java.util.TreeSet;
 public class Main {
 
 	public static void main(String[] args) {
-//		removalExample();
-//		lambdaListExample();
-//		conversionExample();
-//		comparableExample();
-//		mapExample();
-//		lambdaMapExample();
-//		sortedMapExample();
+		removalExample();
+		conversionExample();
+		comparableAndComparator();
+		mapExample();
+		sortedMapExample();
 	}
 
 	private static void removalExample() {
@@ -31,39 +28,24 @@ public class Main {
 
 		MySimpleClass c1 = new MySimpleClass("abc", "1");
 		MySimpleClass c2 = new MySimpleClass("abc", "2");
-		MySimpleClass c3 = new MySimpleClass("abc", "3");
+		MySimpleClass c3 = new MySimpleClass("qsd", "1");
 		list.add(c1);
 		list.add(c2);
 		list.add(c3);
 
-		for (MySimpleClass m : list)
+		for (MySimpleClass m : list) {// 121
 			System.out.print(m.getValue());
-		System.out.println("\nRemove " + c3.getValue());
+		}
 
 		list.remove(c3);
+		System.out.print(System.getProperty("line.separator"));
 
-		for (MySimpleClass m : list)
+		for (MySimpleClass m : list) { // 21 -> the first object was removed because of the equals method which return
+										// true for the first object
 			System.out.print(m.getValue());
+		}
 
-		System.out.print("\nThe wrong object was deleted because the Collection superclass remove the first object "
-				+ "which is returned true to his equals() method");
-
-	}
-
-	private static void lambdaListExample() {
-		ArrayList<MySimpleClass> list = new ArrayList<>();
-
-		MySimpleClass c1 = new MySimpleClass("abc", "1");
-		MySimpleClass c2 = new MySimpleClass("aze", "2");
-		MySimpleClass c3 = new MySimpleClass("abc", "3");
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
-
-		list.forEach(m -> System.out.println(m.getValue()));
-		list.removeIf(m -> m.getLabel().equals("abc"));
-		System.out.println();
-		list.forEach(m -> System.out.println(m.getValue()));
+		list.removeIf(m -> m.getLabel().equals("abc") && m.getValue().contentEquals("1"));
 	}
 
 	private static void conversionExample() {
@@ -74,119 +56,118 @@ public class Main {
 		list.add(new MySimpleClass("aze", "2"));
 		list.add(new MySimpleClass("abc", "3"));
 
-		Object[] obj = list.toArray();
+		MySimpleClass[] a1;
+		// These two notations are equivalents
+		a1 = list.toArray(new MySimpleClass[0]);
+		a1 = (MySimpleClass[]) list.toArray();
 
-		MySimpleClass[] a1 = list.toArray(new MySimpleClass[0]);
-		MySimpleClass[] a2 = new MySimpleClass[2];
+		MySimpleClass[] a2 = new MySimpleClass[3];
 		MySimpleClass[] a3 = list.toArray(a2);
 
-		if (a2 == a3)
-			System.out.println("a2 & a3 are references to the same object if a2.length == 3");
+		if (a2 == a3) {
+			System.out.println("Arrays equality just check the length !");
+		}
 
-		System.out.println(a3.length);
-
-		//
 		// Array to Collection
 		MySimpleClass[] myArray = { new MySimpleClass("abc", "1"), new MySimpleClass("aze", "2"),
 				new MySimpleClass("abc", "3") };
 
+		// https://stackoverflow.com/questions/3317381/what-is-the-difference-between-collection-and-list-in-java
 		Collection<MySimpleClass> collection = Arrays.asList(myArray);
-		collection.forEach(m -> System.out.println(m.getValue()));
+		List<MySimpleClass> list1 = Arrays.asList(myArray);
 	}
 
-	private static void comparableExample() {
-		// Example with a class which implement Comparable<MyComparableClass>
-		TreeSet<MyComparableClass> list = new TreeSet<>();
-
-		list.add(new MyComparableClass("aze", "22"));
-		list.add(new MyComparableClass("rty", "11"));
-		list.add(new MyComparableClass("bio", "33"));
-
+	private static void comparableAndComparator() {
+		/**
+		 * Use of Comparable<T> interface
+		 */
+		// TreeSet of comparable class, the set is sorted by default because of
+		// Comparable<T> interface
+		TreeSet<MyComparableClass> comparableTreeSet = new TreeSet<>();
+		comparableTreeSet.add(new MyComparableClass("aze", "22"));
+		comparableTreeSet.add(new MyComparableClass("rty", "11"));
+		comparableTreeSet.add(new MyComparableClass("bio", "33"));
 		System.out.println("MyComparableClass define comparaison on value");
-		list.forEach(m -> System.out.println(m.toString()));
+		comparableTreeSet.forEach(m -> System.out.println(m.toString()));
 
-		// Example 1 with a custom comparator
-		System.out.println("MySimpleClass TreeSet with a custom comparator which compare on label");
-		TreeSet<MySimpleClass> list1 = new TreeSet<>(new MyComparator());
+		System.out.println();
 
-		list1.add(new MySimpleClass("aze", "22"));
-		list1.add(new MySimpleClass("rty", "11"));
-		list1.add(new MySimpleClass("bio", "33"));
+		// Example with a class which implement Comparable<MyComparableClass>
+		List<MyComparableClass> comparableList = new ArrayList<>();
+		comparableList.add(new MyComparableClass("aze", "22"));
+		comparableList.add(new MyComparableClass("rty", "11"));
+		comparableList.add(new MyComparableClass("bio", "33"));
+		System.out.println(getMinValue(comparableList, MyComparableClass::compareTo));
 
-		list1.forEach(m -> System.out.println(m.toString()));
+		System.out.println();
 
-		// Example 2 with a custom comparator
-		System.out.println("MySimpleClass List with a custom comparator which compare on label");
-		List<MySimpleClass> list2 = new ArrayList<>();
-
-		list2.add(new MySimpleClass("aaa", "22"));
-		list2.add(new MySimpleClass("rrr", "11"));
-		list2.add(new MySimpleClass("ccc", "33"));
-
-		Collections.sort(list2, new MyComparator());
-		list2.forEach(m -> System.out.println(m.toString()));
-
-		// Example 3 with a reverse comparison
-		System.out.println("MySimpleClass List with a custom comparator which compare on label");
-		List<MySimpleClass> list3 = new ArrayList<>();
-
-		list3.add(new MySimpleClass("aaa", "22"));
-		list3.add(new MySimpleClass("rrr", "11"));
-		list3.add(new MySimpleClass("ccc", "33"));
-
-		Collections.sort(list3, new ReverseComparator<>(new MyComparator()));
-		list3.forEach(m -> System.out.println(m.toString()));
-
-		// Example 4 with a reverse comparison
-		System.out.println("MySimpleClass List with a comparator as a generic parameter");
-		List<MySimpleClass> list4 = new ArrayList<>();
-
-		list4.add(new MySimpleClass("aaa", "22"));
-		list4.add(new MySimpleClass("rrr", "11"));
-		list4.add(new MySimpleClass("ccc", "33"));
-
-		MySimpleClass objWithSmallestValue = minValue(list4, new MyComparator());
-		System.out.println(objWithSmallestValue.toString());
-
+		// Use of the default Integer comparator
 		List<Integer> integers = new ArrayList<>();
 		integers.add(1);
 		integers.add(2);
 		integers.add(3);
-		System.out.println(minValue(integers, Integer::compare));
+		System.out.println(getMinValue(integers, Integer::compare));
+		System.out.println(getMinValue(integers, new ReverseComparator<>(Integer::compare)));
 
-//		// Example 5 with a reverse comparison
-//		System.out.println("MySimpleClass List with a comparator directly writed");
-//		List<MySimpleClass> list5 = new ArrayList<>();
-//
-//		list5.add(new MySimpleClass("aaa", "22"));
-//		list5.add(new MySimpleClass("rrr", "11"));
-//		list5.add(new MySimpleClass("ccc", "33"));
-//
-//		MySimpleClass objWithSmallestValue5 = (MySimpleClass) minValue(list5, new Comparator<MySimpleClass>() {
-//			@Override
-//			public int compare(final MySimpleClass o1, final MySimpleClass o2) {
-//				return o1.compareTo(o2);
-//			}
-//
-//		});
+		System.out.println();
+
+		/**
+		 * Use of Comparator<T> interface
+		 */
+
+		// TreeSet of simpleClass and specify the comparator
+		TreeSet<MySimpleClass> list1 = new TreeSet<>(new SimpleClassComparator());
+		list1.add(new MySimpleClass("aze", "22"));
+		list1.add(new MySimpleClass("rty", "11"));
+		list1.add(new MySimpleClass("bio", "33"));
+		list1.forEach(m -> System.out.println(m.toString()));
+
+		System.out.println();
+
+		// The comparator (and reverse comparator) may be applied on a list via
+		// Collections:sort
+		List<MySimpleClass> list2 = new ArrayList<>();
+		list2.add(new MySimpleClass("aaa", "22"));
+		list2.add(new MySimpleClass("rrr", "11"));
+		list2.add(new MySimpleClass("ccc", "33"));
+		// Sorted list
+		Collections.sort(list2, new SimpleClassComparator());
+		list2.forEach(m -> System.out.println(m.toString()));
+		System.out.println();
+		// Reverse sorted list
+		Collections.sort(list2, new ReverseComparator<>(new SimpleClassComparator()));
+		list2.forEach(m -> System.out.println(m.toString()));
+		// list's min value
+		MySimpleClass objWithSmallestValue = getMinValue(list2, new SimpleClassComparator());
+		System.out.println("min : " + objWithSmallestValue.toString());
+		// list's min value with lambda comparator
+		objWithSmallestValue = (MySimpleClass) getMinValue(list2, new Comparator<MySimpleClass>() {
+			@Override
+			public int compare(final MySimpleClass o1, final MySimpleClass o2) {
+				return o1.getLabel().compareToIgnoreCase(o2.getLabel());
+			}
+		});
+		System.out.println("min : " + objWithSmallestValue.toString());
+		// list's reversed min value, so the max
+		objWithSmallestValue = getMinValue(list2, new ReverseComparator<>(new SimpleClassComparator()));
+		System.out.println("max : " + objWithSmallestValue.toString());
 
 	}
 
 	/**
-	 * We can use T in signature because T is in the scope because of the <T> before
-	 * Return type
+	 * Use the comparator in order to find the min value
 	 * 
-	 * @param list4
-	 * @param myComparator
+	 * @param list
+	 * @param comparator
 	 * @return
 	 */
-	private static <T> T minValue(List<T> list4, Comparator<T> myComparator) {
-		if (list4.isEmpty())
+	private static <T> T getMinValue(List<T> list, Comparator<T> comparator) {
+		if (list.isEmpty())
 			throw new IllegalArgumentException("Can't find a minimum in an empty list!");
-		T lowest = list4.get(0);
-		for (int i = 0; i < list4.size(); i++) {
-			final T element = list4.get(i);
-			if (myComparator.compare(element, lowest) < 0) {
+		T lowest = list.get(0);
+		for (int i = 0; i < list.size(); i++) {
+			final T element = list.get(i);
+			if (comparator.compare(element, lowest) < 0) {
 				lowest = element;
 			}
 		}
@@ -204,19 +185,8 @@ public class Main {
 
 		map.replaceAll((k, v) -> "new " + v);
 		map.forEach((k, v) -> System.out.println(k + " | " + v));
-	}
-
-	private static void lambdaMapExample() {
-		Map<String, String> map = new HashMap<>();
-		map.put("22", "aze");
-		map.put("11", "zer");
-		map.put("33", "bvc");
-
-		map.forEach((k, v) -> System.out.println(k + " | " + v));
-
 		map.replaceAll((k, v) -> v.toUpperCase());
 		map.forEach((k, v) -> System.out.println(k + " | " + v));
-
 	}
 
 	private static void sortedMapExample() {
@@ -230,52 +200,45 @@ public class Main {
 
 		map.forEach((k, v) -> System.out.println(k + " | " + v));
 
-		System.out.println("Return of head map from the map");
-		SortedMap<String, String> hMap = map.headMap("33");
-		hMap.forEach((k, v) -> System.out.println(k + " | " + v));
+		SortedMap<String, String> hMap = map.headMap("33");// Strictly before
+//		hMap.forEach((k, v) -> System.out.println(k + " | " + v));
 
-		System.out.println("Return of tail map from the map");
-		SortedMap<String, String> tMap = map.tailMap("33");
-		tMap.forEach((k, v) -> System.out.println(k + " | " + v));
+		SortedMap<String, String> tMap = map.tailMap("33");// After or equals
+//		tMap.forEach((k, v) -> System.out.println(k + " | " + v));
 
-		System.out.println("Return of sub map from the map");
-		SortedMap<String, String> sMap = map.subMap("22", "44");
-		sMap.forEach((k, v) -> System.out.println(k + " | " + v));
+		SortedMap<String, String> sMap = map.subMap("22", "55");// After and strictly before
+//		sMap.forEach((k, v) -> System.out.println(k + " | " + v));
 
-	}
+		System.out.println();
 
-	private static void iterateOverCollections() {
-		MySimpleClass msc1 = new MySimpleClass("label1", "value1");
-		MySimpleClass msc2 = new MySimpleClass("label2", "value2");
-		MySimpleClass msc3 = new MySimpleClass("label3", "value3");
-
-		Collection<MySimpleClass> col = new ArrayList<>();
-		col.add(msc1);
-		col.add(msc2);
-		col.add(msc3);
-
-		// Multiple ways to do the same thing
-		// Traditionnal way: using the iterator
-		final Iterator<MySimpleClass> iterator = col.iterator();
-		while (iterator.hasNext()) {
-			MySimpleClass msc = iterator.next();
-			System.out.println(msc.getLabel() + " | " + msc.getValue());
-			if (msc.getLabel().equals("toberemoved")) {
-				iterator.remove();
+		/**
+		 * With a custom comparator
+		 */
+//		SortedMap<String, String> 
+		map = new TreeMap<>(new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o2.compareTo(o1);
 			}
-		}
+		});
+		map.put("22", "aze");
+		map.put("11", "zer");
+		map.put("33", "bvc");
+		map.put("44", "xcxv");
+		map.put("66", "uyt");
+		map.put("55", "rfv");
 
-		// Since Java 5
-		for (MySimpleClass sc : col) {
-			System.out.println(sc.getLabel() + " | " + sc.getValue());
-			if (sc.getLabel().equals("toberemoved")) {
-				// DOESN'T DO THIS:: If we want to add or remove element, use an iterator
-				col.remove(sc);
-			}
-		}
+		map.forEach((k, v) -> System.out.println(k + " | " + v));
 
-		// Since Java 8 lambda functions
-		col.forEach(sc -> System.out.println(sc.getLabel() + " | " + sc.getValue()));
+		hMap = map.headMap("33");// Strictly before
+//		hMap.forEach((k, v) -> System.out.println(k + " | " + v));
+
+		tMap = map.tailMap("33");// After or equals
+//		tMap.forEach((k, v) -> System.out.println(k + " | " + v));
+
+		sMap = map.subMap("55", "22");// After and strictly before
+//		sMap.forEach((k, v) -> System.out.println(k + " | " + v));
+
 	}
 
 }
