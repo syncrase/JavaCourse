@@ -9,7 +9,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
-import fr.exp.files.merger.skeleton.IMergeableFile;
+import javaFundamentalsCorePlatform.streams.files.merger.skeleton.IMergeableFile;
 
 public class XLS extends AFileType implements IMergeableFile {
 

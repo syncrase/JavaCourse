@@ -6,11 +6,12 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.exp.files.pearltrees.composite.impl.INode;
-import fr.exp.files.pearltrees.composite.impl.PearltreesComposite;
-import fr.exp.files.pearltrees.composite.impl.utils.TreeBuilder;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.INode;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.PearltreesComposite;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.utils.TreeBuilder;
 
 /**
  * The private constructor allow to parse the html file and to build a tree
@@ -23,8 +24,7 @@ public class TreeExtractor extends TreeBuilder {
 
 	INode content;
 
-	public static ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger) LoggerFactory
-			.getLogger("fr.exp.files.pearltrees");
+	public static Logger logger = LoggerFactory.getLogger("fr.exp.files.pearltrees");
 
 	/**
 	 * The private constructor parse the html file and build a tree structure with

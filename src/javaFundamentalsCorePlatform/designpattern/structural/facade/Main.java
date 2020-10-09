@@ -1,6 +1,6 @@
 package javaFundamentalsCorePlatform.designpattern.structural.facade;
 
-import fr.exp.patterns.structural.facade.container.Computer;
+import javaFundamentalsCorePlatform.designpattern.structural.facade.container.Computer;
 
 public class Main {
 

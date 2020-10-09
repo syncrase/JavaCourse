@@ -2,8 +2,8 @@ package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedele
 
 import java.util.ArrayList;
 
-import fr.exp.patterns.behavioral.visitor.visitedelements.AbstractElement;
-import fr.exp.patterns.behavioral.visitor.visitedelements.IElement;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.AbstractElement;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.IElement;
 
 public class ElementContainer extends AbstractElement {
 

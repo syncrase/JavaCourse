@@ -1,11 +1,15 @@
 package javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton;
 
-import fr.exp.files.pearltrees.database.dao.LiaisonFoldedTagsDAO;
-import fr.exp.files.pearltrees.database.dao.LiaisonTagUrlDAO;
-import fr.exp.files.pearltrees.database.dao.PathsDAO;
-import fr.exp.files.pearltrees.database.dao.TagsDAO;
-import fr.exp.files.pearltrees.database.dao.UrlsDAO;
-import fr.exp.files.pearltrees.database.dto.*;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dao.LiaisonFoldedTagsDAO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dao.LiaisonTagUrlDAO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dao.PathsDAO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dao.TagsDAO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dao.UrlsDAO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.LiaisonFoldedTagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.LiaisonTagUrlDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.PathsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.TagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.UrlsDTO;
 
 /**
  * Cette méthode permet d'avoir une façade de DAO.

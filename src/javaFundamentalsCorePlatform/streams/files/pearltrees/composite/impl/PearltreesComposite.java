@@ -3,9 +3,9 @@ package javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.exp.files.pearltrees.composite.impl.utils.TreeBuilder;
-import fr.exp.files.pearltrees.database.dto.TagsDTO;
-import fr.exp.files.pearltrees.metamodels.TaggedUrl;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.utils.TreeBuilder;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.TagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.metamodels.TaggedUrl;
 
 /**
  * Extends the TreeBuilder class in order to add the build behavior

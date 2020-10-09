@@ -3,7 +3,7 @@ package javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import fr.exp.files.pearltrees.database.skeleton.DataTransfertObject;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DataTransfertObject;
 
 public class UrlsDTO implements DataTransfertObject {
 

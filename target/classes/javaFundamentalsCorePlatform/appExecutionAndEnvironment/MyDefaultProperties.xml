@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-<comment>This is a comment</comment>
-<entry key="isFirstRun">y</entry>
-<entry key="welcomeMessage">Bonjour</entry>
-<entry key="farewellMessage">Bon appétit</entry>
-</properties>

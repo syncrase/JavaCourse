@@ -2,7 +2,9 @@ package javaFundamentalsCorePlatform.streams.files.merger.skeleton;
 
 import java.util.regex.Pattern;
 
-import fr.exp.files.merger.filetype.*;
+import javaFundamentalsCorePlatform.streams.files.merger.filetype.CSV;
+import javaFundamentalsCorePlatform.streams.files.merger.filetype.IFileType;
+import javaFundamentalsCorePlatform.streams.files.merger.filetype.XLS;
 
 public class MergeableFileFactory {
 

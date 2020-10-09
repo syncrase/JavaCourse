@@ -1,8 +1,8 @@
 package javaFundamentalsCorePlatform.designpattern.structural.facade.container;
 
-import fr.exp.patterns.structural.facade.contained.CPU;
-import fr.exp.patterns.structural.facade.contained.HardDrive;
-import fr.exp.patterns.structural.facade.contained.Memory;
+import javaFundamentalsCorePlatform.designpattern.structural.facade.content.CPU;
+import javaFundamentalsCorePlatform.designpattern.structural.facade.content.HardDrive;
+import javaFundamentalsCorePlatform.designpattern.structural.facade.content.Memory;
 
 //Facade
 public class Computer {

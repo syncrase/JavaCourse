@@ -5,21 +5,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.exp.databases.mysql.DBConnection;
-import fr.exp.files.pearltrees.database.dto.LiaisonFoldedTagsDTO;
-import fr.exp.files.pearltrees.database.dto.LiaisonTagUrlDTO;
-import fr.exp.files.pearltrees.database.dto.PathsDTO;
-import fr.exp.files.pearltrees.database.dto.TagsDTO;
-import fr.exp.files.pearltrees.database.dto.UrlsDTO;
-import fr.exp.files.pearltrees.database.skeleton.DAOManipulator;
-import fr.exp.files.pearltrees.database.skeleton.DataTransfertObject;
-import fr.exp.files.pearltrees.metamodels.TaggedUrl;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.LiaisonFoldedTagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.LiaisonTagUrlDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.PathsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.TagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.UrlsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DAOManipulator;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DBConnection;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DataTransfertObject;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.metamodels.TaggedUrl;
 
 public class TaggedUrlDatabaseIO {
-	public static ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger) LoggerFactory
-			.getLogger("fr.exp.files.pearltrees");
+	public static Logger logger = LoggerFactory.getLogger("fr.exp.files.pearltrees");
 
 	// TODO pour beaucoup plus tard. Si je veux faire des UI pour manipuler tout ça.
 	// Des méthodes pour rassembler des paths. Supprimer des paths entier. recréer

@@ -1,6 +1,6 @@
 package javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto;
 
-import fr.exp.files.pearltrees.database.skeleton.DataTransfertObject;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DataTransfertObject;
 
 public class TagsDTO implements DataTransfertObject {
 

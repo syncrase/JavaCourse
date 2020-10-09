@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import fr.exp.files.merger.filetype.IFileType;
-import fr.exp.files.merger.ioimpl.FileBasicsImpl;
+import javaFundamentalsCorePlatform.streams.files.merger.filetype.IFileType;
+import javaFundamentalsCorePlatform.streams.files.merger.ioimpl.FileBasicsImpl;
 
 public class Merger {
 

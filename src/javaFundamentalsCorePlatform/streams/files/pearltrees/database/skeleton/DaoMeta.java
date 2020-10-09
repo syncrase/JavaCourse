@@ -3,15 +3,12 @@ package javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import fr.exp.databases.mysql.DBConnection;
-import fr.exp.databases.mysql.DBInfo;
 
 public abstract class DaoMeta implements DaoMustHave {
 
-	static protected ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger) LoggerFactory
-			.getLogger("pearltrees.dao");
+	static protected Logger logger = LoggerFactory.getLogger("pearltrees.dao");
 
 	protected int getLastInsertedId(String column_name, String table_name) {
 		// Get the id of the last inserted row
@@ -41,3 +38,4 @@ public abstract class DaoMeta implements DaoMustHave {
 	}
 
 }
+

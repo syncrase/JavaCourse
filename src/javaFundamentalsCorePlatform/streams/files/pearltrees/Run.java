@@ -1,18 +1,17 @@
 package javaFundamentalsCorePlatform.streams.files.pearltrees;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import fr.exp.logimpl.Counter;
+import org.w3c.dom.css.Counter;
 
 public class Run {
 
-	public static ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger) LoggerFactory
-			.getLogger("fr.exp.files.pearltrees");
+	public static Logger logger = LoggerFactory.getLogger("fr.exp.files.pearltrees");
 
 	public static void main(String[] args) {
 		logger.warn("Main lauched");
-		Counter counter = Counter.getCounter();
-		counter.start();
+//		Counter counter = Counter.getCounter();
+//		counter.start();
 
 		// pearltrees_export20171007.html
 		// files/in/pearltrees_export-25-12-2016.html
@@ -41,8 +40,8 @@ public class Run {
 		// partie?
 		// Sachant que la base de données peut-être mongodb, neo4j, ... et
 		// fichier! ==>> Bosser sur le pattern adéquat! (builder, factory?)
-		counter.stop();
-		logger.warn("Time elapsed: {}", counter.getTime());
+//		counter.stop();
+//		logger.warn("Time elapsed: {}", counter.getTime());
 	}
 
 	// private static void print(String msg, Object... args) {

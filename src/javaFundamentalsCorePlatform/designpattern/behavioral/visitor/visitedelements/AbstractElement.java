@@ -2,8 +2,7 @@ package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedele
 
 import java.util.ArrayList;
 
-import fr.exp.patterns.behavioral.visitor.visitors.ISetOfAction;
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.extended.IElement;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.ISetOfAction;
 
 /**
  * Cette classe abstraite permet d'hériter de l'ensemble implémenté des méthodes

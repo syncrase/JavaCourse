@@ -1,7 +1,7 @@
 package javaFundamentalsCorePlatform.designpattern.structural.decorator.decorated;
 
-import fr.exp.patterns.structural.decorator.impl.Coffee;
-import fr.exp.patterns.structural.decorator.impl.CoffeeDecorator;
+import javaFundamentalsCorePlatform.designpattern.structural.decorator.impl.Coffee;
+import javaFundamentalsCorePlatform.designpattern.structural.decorator.impl.CoffeeDecorator;
 
 public class Sprinkles extends CoffeeDecorator {
 	public Sprinkles(Coffee decoratedCoffee) {

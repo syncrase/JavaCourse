@@ -3,9 +3,9 @@ package javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.uti
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import fr.exp.files.pearltrees.composite.impl.INode;
-import fr.exp.files.pearltrees.composite.impl.PearltreesComposite;
-import fr.exp.files.pearltrees.composite.impl.PearltreesLeaf;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.INode;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.PearltreesComposite;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.PearltreesLeaf;
 
 /**
  * This method allow to handle the parse result in order to generate the
@@ -17,10 +17,10 @@ import fr.exp.files.pearltrees.composite.impl.PearltreesLeaf;
 public abstract class TreeBuilder {
 
 	/**
-	 * Method specific to the html export of pearltrees. Must be generalized. Protected to be available
-	 * for subclasses , PearltreesComposite parentFolder This is an iterative method
-	 * called where this class is extended and use . Transform the html structure to
-	 * a java tree structure
+	 * Method specific to the html export of pearltrees. Must be generalized.
+	 * Protected to be available for subclasses , PearltreesComposite parentFolder
+	 * This is an iterative method called where this class is extended and use .
+	 * Transform the html structure to a java tree structure
 	 * 
 	 * @allElements JSoup elements containing html
 	 * @parent parent of the node currently building

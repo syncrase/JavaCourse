@@ -4,11 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.exp.databases.mysql.DBConnection;
-import fr.exp.databases.mysql.DBInfo;
-import fr.exp.files.pearltrees.database.dto.TagsDTO;
-import fr.exp.files.pearltrees.database.skeleton.DaoMeta;
-import fr.exp.files.pearltrees.database.skeleton.DataTransfertObject;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.TagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DBConnection;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DBInfo;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DaoMeta;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DataTransfertObject;
 
 public class TagsDAO extends DaoMeta {
 

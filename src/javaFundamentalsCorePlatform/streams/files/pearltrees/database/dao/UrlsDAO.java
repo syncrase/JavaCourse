@@ -4,11 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.exp.databases.mysql.DBConnection;
-import fr.exp.databases.mysql.DBInfo;
-import fr.exp.files.pearltrees.database.dto.UrlsDTO;
-import fr.exp.files.pearltrees.database.skeleton.DaoMeta;
-import fr.exp.files.pearltrees.database.skeleton.DataTransfertObject;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.UrlsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DBConnection;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DBInfo;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DaoMeta;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DataTransfertObject;
 
 public class UrlsDAO extends DaoMeta {
 
@@ -40,8 +40,7 @@ public class UrlsDAO extends DaoMeta {
 	/**
 	 * Récupère une Url en base de données à partir de l'url et du label
 	 * 
-	 * @param url
-	 *            Url contenant url ET label
+	 * @param url Url contenant url ET label
 	 * @return L'objet url complété de son id en base de données, ou pas s'il
 	 *         n'existe pas.
 	 */

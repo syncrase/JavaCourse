@@ -2,8 +2,10 @@ package javaFundamentalsCorePlatform.streams.files.pearltrees.metamodels;
 
 import java.util.ArrayList;
 
-import fr.exp.files.pearltrees.database.dto.*;
-import fr.exp.files.pearltrees.database.skeleton.DataTransfertObject;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.PathsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.TagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.UrlsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.skeleton.DataTransfertObject;
 
 /**
  * Equivalent Java correspondant au model 'Url'

@@ -8,13 +8,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.exp.files.pearltrees.composite.TreeExtractor;
-import fr.exp.files.pearltrees.composite.impl.INode;
-import fr.exp.files.pearltrees.database.TaggedUrlDatabaseIO;
-import fr.exp.files.pearltrees.database.dto.TagsDTO;
-import fr.exp.files.pearltrees.metamodels.TaggedUrl;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.TreeExtractor;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.composite.impl.INode;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.TaggedUrlDatabaseIO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.database.dto.TagsDTO;
+import javaFundamentalsCorePlatform.streams.files.pearltrees.metamodels.TaggedUrl;
 
 /**
  * All front methods
@@ -26,7 +27,7 @@ public class PearltreesFacade2 {
 
 	private INode pearlTreesExportData;
 
-	public static ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger) LoggerFactory
+	public static Logger logger =  LoggerFactory
 			.getLogger("fr.exp.files.pearltrees");
 
 	/**

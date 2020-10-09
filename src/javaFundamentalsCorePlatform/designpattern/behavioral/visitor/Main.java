@@ -1,9 +1,9 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor;
 
-import fr.exp.patterns.behavioral.visitor.visitedelements.IElement;
-import fr.exp.patterns.behavioral.visitor.visitedelements.extended.ElementContainer;
-import fr.exp.patterns.behavioral.visitor.visitors.ISetOfAction;
-import fr.exp.patterns.behavioral.visitor.visitors.SetOfActionPrintImpl;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.IElement;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.extended.ElementContainer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.ISetOfAction;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.SetOfActionPrintImpl;
 
 public class Main {
 

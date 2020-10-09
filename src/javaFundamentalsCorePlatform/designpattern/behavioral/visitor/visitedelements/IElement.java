@@ -2,7 +2,7 @@ package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedele
 
 import java.util.ArrayList;
 
-import fr.exp.patterns.behavioral.visitor.visitors.ISetOfAction;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.ISetOfAction;
 
 /**
  * Permet de prendre en compte la classe interfaçée dans les éléments

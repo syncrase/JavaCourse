@@ -3,22 +3,21 @@ package javaFundamentalsCorePlatform.streams.files.merger;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import fr.exp.files.merger.filetype.IFileType;
-import fr.exp.files.merger.skeleton.MergeableFileFactory;
-import fr.exp.files.merger.skeleton.Merger;
-import fr.exp.logimpl.Counter;
+import javaFundamentalsCorePlatform.streams.files.merger.filetype.IFileType;
+import javaFundamentalsCorePlatform.streams.files.merger.skeleton.MergeableFileFactory;
+import javaFundamentalsCorePlatform.streams.files.merger.skeleton.Merger;
 
 public class RunAccessPoint {
 
-	public static ch.qos.logback.classic.Logger logger = (ch.qos.logback.classic.Logger) LoggerFactory
-			.getLogger("fr.exp.files.*");
+	public static Logger logger = LoggerFactory.getLogger("fr.exp.files.*");
 
 	public static void main(String[] args) {
 		logger.warn("Main lauched");
-		Counter counter = Counter.getCounter();
-		counter.start();
+//		Counter counter = Counter.getCounter();
+//		counter.start();
 
 		try {
 			// 1/ récupération du tableau ordonné, depuis le fichier texte, contenant
@@ -78,8 +77,8 @@ public class RunAccessPoint {
 			fileList.add(manipulator2);
 //			fileList.add(manipulator3);
 			merger.merge(desiredLayout, fileList);
-			counter.stop();
-			logger.warn("Time elapsed: {}", counter.getTime());
+//			counter.stop();
+//			logger.warn("Time elapsed: {}", counter.getTime());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

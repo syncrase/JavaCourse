@@ -1,9 +1,9 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors;
 
-import fr.exp.patterns.behavioral.visitor.visitedelements.AbstractElement;
-import fr.exp.patterns.behavioral.visitor.visitedelements.extended.Element;
-import fr.exp.patterns.behavioral.visitor.visitedelements.extended.ElementContainer;
-import fr.exp.patterns.behavioral.visitor.visitedelements.extended.TheMostSimpleElement;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.AbstractElement;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.extended.Element;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.extended.ElementContainer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitedelements.extended.TheMostSimpleElement;
 
 public class SetOfActionPrintImpl implements ISetOfAction {
 

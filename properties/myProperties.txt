@@ -1,0 +1,1 @@
+COURSE_AUTHOR=pierre

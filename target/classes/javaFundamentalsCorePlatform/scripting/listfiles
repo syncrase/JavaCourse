@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ListFiles {
+public class ListFiles2 {
 
 	/**
 	* "C:\Program Files\Java\jdk-11.0.1\bin\java" --source 11 listfiles .

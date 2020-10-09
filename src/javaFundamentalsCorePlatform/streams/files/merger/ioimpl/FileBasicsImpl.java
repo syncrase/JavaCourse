@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.exp.files.basics.FilesBasics;
+import javaFundamentalsCorePlatform.streams.files.basics.FilesBasics;
 
 public class FileBasicsImpl extends FilesBasics {
 
