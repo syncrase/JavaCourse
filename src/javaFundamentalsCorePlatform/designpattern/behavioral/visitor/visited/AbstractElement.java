@@ -1,6 +1,6 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited;
 
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.ISetOfAction;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IPerformer;
 
 /**
  * Cette classe abstraite permet d'hériter de l'ensemble implémenté des méthodes
@@ -9,7 +9,7 @@ import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IS
  * @author Pierre TAQUET
  *
  */
-public abstract class AbstractElement implements VisitorActivator {
+public abstract class AbstractElement implements DispatchedActions {
 
 	public String name;
 
@@ -18,11 +18,11 @@ public abstract class AbstractElement implements VisitorActivator {
 	}
 
 	/**
-	 * The logic will be different based on the setOfAction passed in parameter
+	 * The logic will be different based on the performer passed in parameter
 	 */
 	@Override
-	public void performAction(ISetOfAction setOfAction)  {
-		setOfAction.performOn(this);
+	public void performWith(IPerformer performer) {
+		performer.performOn(this);
 	}
 
 }

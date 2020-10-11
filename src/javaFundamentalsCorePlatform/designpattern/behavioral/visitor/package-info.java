@@ -5,10 +5,10 @@
  * https://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Visitor
  * https://fr.wikipedia.org/wiki/Visiteur_(patron_de_conception)
  * 
- * This design pattern is based on the overloading of the ISetOfAction method
- * The logic will differ based on the element type.<br>
+ * This design pattern is based on the overloading of the IPerformer method The
+ * logic will differ based on the element type.<br>
  * It's possible to add a multitude of specific behaviour for each type which is
- * visited
+ * visited<br>
  * 
  * @author Pierre TAQUET
  *

@@ -5,7 +5,7 @@ import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.Ele
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementB;
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementContainer;
 
-public interface ISetOfAction {
+public interface IPerformer {
 
 	void performOn(AbstractElement aEl);
 

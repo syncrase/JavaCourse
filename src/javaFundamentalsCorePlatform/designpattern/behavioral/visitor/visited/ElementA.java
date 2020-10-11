@@ -1,6 +1,6 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited;
 
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.ISetOfAction;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IPerformer;
 
 public class ElementA extends AbstractElement {
 
@@ -10,8 +10,8 @@ public class ElementA extends AbstractElement {
 	}
 
 	@Override
-	public void performAction(ISetOfAction setOfAction) {
-		setOfAction.performOn(this);
+	public void performWith(IPerformer performer) {
+		performer.performOn(this);
 	}
 
 }

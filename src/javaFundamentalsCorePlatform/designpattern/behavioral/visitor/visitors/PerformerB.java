@@ -4,9 +4,9 @@ import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.Abs
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementA;
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementB;
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementContainer;
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.VisitorActivator;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.DispatchedActions;
 
-public class SpecificPrinter implements ISetOfAction {
+public class PerformerB implements IPerformer {
 
 	@Override
 	public void performOn(ElementB el) {
@@ -26,8 +26,8 @@ public class SpecificPrinter implements ISetOfAction {
 		System.out.println(" I am " + el.name + " and I have " + el.childElements.size() + " children");
 
 		if (el.childElements != null && el.childElements.size() > 0) {
-			for (VisitorActivator element : el.childElements) {
-				element.performAction(this);
+			for (DispatchedActions element : el.childElements) {
+				element.performWith(this);
 			}
 		}
 	}
