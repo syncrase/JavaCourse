@@ -1,24 +1,16 @@
 /**
- * The point of visitor is to extend a bunch of elements with a new operation without changing their implementation nor the caller's 
- * implementation.
- * http://c2.com/cgi/wiki?VisitorPattern
- * https://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Visitor
- */
-/**
- * @author I310911
- *
- */
-package javaFundamentalsCorePlatform.designpattern.behavioral.visitor;
-/*
+ * The point of visitor is to extend a bunch of elements with a new operation
+ * without changing their implementation nor the caller's implementation.
  * http://c2.com/cgi/wiki?VisitorPattern
  * https://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Visitor
  * https://fr.wikipedia.org/wiki/Visiteur_(patron_de_conception)
- * comportemental
  * 
- * The point of visitor is to extend a bunch of elements with a new operation without changing their implementation nor the caller's 
- * implementation.
- * manière de séparer un algorithme d'une structure de données
+ * This design pattern is based on the overloading of the ISetOfAction method
+ * The logic will differ based on the element type.<br>
+ * It's possible to add a multitude of specific behaviour for each type which is
+ * visited
  * 
- * Ce design pattern se base sur la surcharge des méthodes du set d'actions. Fonction de l'élement reçu, le traitement n'est pas le même
- * Possibilité de coder quelque chose propre à l'instance
+ * @author Pierre TAQUET
+ *
  */
+package javaFundamentalsCorePlatform.designpattern.behavioral.visitor;
