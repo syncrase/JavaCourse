@@ -10,6 +10,16 @@
  * It's possible to add a multitude of specific behaviour for each type which is
  * visited<br>
  * 
+ * Separation of concerns :
+ * <ul>
+ * <li>visited elements aren't handle any logic</li>
+ * <li>the logic is implemented visitors</li>
+ * <li>many visitors can exist</li>
+ * </ul>
+ * 
+ * Visitor pattern is misnamed, it implements a double dispatch
+ * https://stackoverflow.com/questions/255214/when-should-i-use-the-visitor-design-pattern
+ * 
  * @author Pierre TAQUET
  *
  */

@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors;
+package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer;
 
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.AbstractElement;
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementA;

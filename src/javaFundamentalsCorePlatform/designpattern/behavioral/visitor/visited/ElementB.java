@@ -1,6 +1,7 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited;
 
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IPerformer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.hanldler.IHandler;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer.IPerformer;
 
 public class ElementB extends AbstractElement {
 
@@ -15,6 +16,12 @@ public class ElementB extends AbstractElement {
 	@Override
 	public void performWith(IPerformer performer) {
 		performer.performOn(this);
+	}
+
+	@Override
+	public void handleWith(IHandler handler) {
+		handler.handleOn(this);
+
 	}
 
 	public String getOnlyElementBValue() {

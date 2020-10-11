@@ -1,6 +1,6 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited;
 
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IPerformer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer.IPerformer;
 
 /**
  * Cette classe abstraite permet d'hériter de l'ensemble implémenté des méthodes

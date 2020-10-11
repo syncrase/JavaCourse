@@ -1,6 +1,7 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited;
 
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IPerformer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.hanldler.IHandler;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer.IPerformer;
 
 /**
  * Implement this interface in order to activate the visitor behaviour<br>
@@ -18,4 +19,6 @@ public interface DispatchedActions {
 	 * @param Elementvisitor
 	 */
 	void performWith(IPerformer performer);
+
+	void handleWith(IHandler handler);
 }

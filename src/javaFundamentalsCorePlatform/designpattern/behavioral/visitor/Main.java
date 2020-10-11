@@ -1,11 +1,13 @@
 package javaFundamentalsCorePlatform.designpattern.behavioral.visitor;
 
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementA;
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementContainer;
 import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.DispatchedActions;
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.IPerformer;
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.PerformerA;
-import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.PerformerB;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visited.ElementContainer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.hanldler.HandlerA;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.hanldler.HandlerB;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.hanldler.IHandler;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer.IPerformer;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer.PerformerA;
+import javaFundamentalsCorePlatform.designpattern.behavioral.visitor.visitors.performer.PerformerB;
 
 public class Main {
 
@@ -13,18 +15,17 @@ public class Main {
 
 		System.out.println("[run] " + Main.class);
 
+		// My object on which I can dispatch actions
 		DispatchedActions elementContainer = new ElementContainer("Alfred");
 		((ElementContainer) elementContainer).initElementContainer();
 
-		visitorUseExample(elementContainer);
-
-	}
-
-	private static void visitorUseExample(DispatchedActions elementContainer) {
-		// Sets of actions to perform
+		// My dispatched actions
 		IPerformer performerA = new PerformerA();
 		IPerformer performerB = new PerformerB();
+		IHandler handlerA = new HandlerA();
+		IHandler handlerB = new HandlerB();
 
+		// Sets of actions to perform
 		elementContainer.performWith(performerA);
 		System.out.println();
 		System.out.println();
@@ -32,9 +33,14 @@ public class Main {
 		System.out.println();
 		System.out.println();
 
-		DispatchedActions a = new ElementA("Element A");
-		a.performWith(performerB);
-		a.performWith(performerA);
+		// Sets of actions to handle
+		elementContainer.handleWith(handlerA);
+		System.out.println();
+		System.out.println();
+		elementContainer.handleWith(handlerB);
+		System.out.println();
+		System.out.println();
+
 	}
 
 }
