@@ -26,6 +26,9 @@ hs_err_pid*
 target/
 log/
 
+#Java
+doc/
+
 # Eclipse
 .classpath
 .project
