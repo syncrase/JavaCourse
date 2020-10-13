@@ -28,6 +28,8 @@ log/
 
 #Java
 doc/
+myapp**
+
 
 # Eclipse
 .classpath
