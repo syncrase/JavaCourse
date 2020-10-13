@@ -20,66 +20,52 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// basicsUse();
+		basicsUse();
 		fullExampleWithGenerics();
 	}
 
 	private static void basicsUse() {
-		// Class1 class1 = new Class1();
-		Class2 class2 = new Class2();
-		showName(class2.getClass());
-		showName(class2.getClass().getSuperclass());
+		Class2 class2 = new Class2("");
+		System.out.println(class2.getClass().getSimpleName());// Class2
+		System.out.println(class2.getClass().getSuperclass().getSimpleName());// Class1
 
 		Class<?>[] interfaces = class2.getClass().getInterfaces();
 		for (Class<?> i : interfaces) {
-			showName(i);
+			System.out.println(i.getSimpleName());
 		}
 
 		try {
-			showName(Class.forName(
-					"javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.BankAccount"));
+			System.out.println(Class
+					.forName(
+							"javaFundamentalsCorePlatform.multithreadingAndConcurrency.coordinatingExample.BankAccount")
+					.getSimpleName());// BankAccount
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+
 		int modifiers = class2.getClass().getModifiers();
-		if ((modifiers & Modifier.FINAL) > 0)
-			System.out.println(modifiers);
+//
+		System.out.println("Modifier.FINAL: " + Modifier.FINAL);// Modifier.FINAL: 16
+		System.out.println("modifiers: " + modifiers);// modifiers: 17
 
-		// To obtain some class information
+		System.out.println("is final : " + Modifier.isFinal(modifiers));
+		System.out.println("is public : " + Modifier.isPublic(modifiers));
+		System.out.println("is synchronized : " + Modifier.isSynchronized(modifiers));
+
 		HighVolumeAccount hvAccount = new HighVolumeAccount(0);
-		modifiers = hvAccount.getClass().getModifiers();
-		System.out.println("Modifier.FINAL: " + Modifier.FINAL);
-		System.out.println("modifiers: " + modifiers);
-		if ((modifiers & Modifier.FINAL) > 0)
-			System.out.println(modifiers);
-
-		if (Modifier.isFinal(modifiers))
-			System.out.println("is final");
-
-		if (Modifier.isPublic(modifiers))
-			System.out.println("is public");
-
-		if (Modifier.isSynchronized(modifiers))
-			System.out.println("is Synchronized");
-
-		// To obtain fields information .getSuperclass()
-		Class<?> theClass = hvAccount.getClass();
-		Field[] fields = theClass.getFields();
-		Field[] declaredFields = theClass.getDeclaredFields();
-		// displayFields(fields);
-		// displayFields(declaredFields);
-
-		// theClass = hvAccount.getClass();
-		Method[] methods = theClass.getMethods();
-		Method[] declaredMethods = theClass.getDeclaredMethods();
-		displayMethods(methods);
-		displayMethods(declaredMethods);
+		displayFields(hvAccount.getClass().getSuperclass().getFields());
+		displayFields(hvAccount.getClass().getSuperclass().getDeclaredFields());
+		System.out.println();
+		displayMethods(hvAccount.getClass().getMethods());
+		System.out.println();
+		displayMethods(hvAccount.getClass().getDeclaredMethods());
+		System.out.println();
 
 		// Call methods
-		Method m;
+		Method sayHelloMethod;
 		try {
-			m = theClass.getMethod("sayHello", String.class);
-			Object result = m.invoke(hvAccount, "world");
+			sayHelloMethod = hvAccount.getClass().getMethod("sayHello", String.class);
+			Object result = sayHelloMethod.invoke(hvAccount, "world");
 			System.out.println("result is " + result);
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
@@ -111,50 +97,30 @@ public class Main {
 
 	}
 
-	private static void showName(Class<?> theClass) {
-		System.out.println(theClass.getSimpleName());
-	}
-
 	private static void reflectionImpl(String worker, Object target)
 			throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
 		Class<?> workerType = Class.forName(worker);
 		Class<?> targetType = target.getClass();
-		Constructor c = workerType.getConstructor(targetType);
+		Constructor<?> c = workerType.getConstructor(targetType);
 		// Constructor<?>[] constructors = workerType.getConstructors();
 		// c = constructors[0];
 		Object workerInstance = c.newInstance(target);
 		Method sayHello = workerType.getMethod("sayHello");
 		sayHello.invoke(workerInstance);
-//		workerInstance.sayHello();
 
 		// Other way to do the same when a no argument constructor exists and an
 		// interface implementation
 		TaskWorker workerViaInterface = (TaskWorker) workerType.newInstance();
 		workerViaInterface.setBankAccount(target);
-		// TODO USE ANNOTATION
-		WorkHandler wh = workerType.getAnnotation(WorkHandler.class);
-		ProcessedBy pb = targetType.getAnnotation(ProcessedBy.class);
-		Class<?> annotateWorkerType = pb.value();
-		TaskWorker taskWorker = (TaskWorker) annotateWorkerType.newInstance();
-
-		if (wh.useThreadPool()) {
-//			pool.submit(new Runnable() {
-//				public void run() {
-			workerViaInterface.sayHello();
-//				}
-//			});
-		} else {
-			workerViaInterface.sayHello();
-		}
-
-		// workerViaInterface.sayHello();
 	}
 
 	private static void fullExampleWithGenerics() {
+		// Works only if the class as one constructor with one parameter
 		Injector injector = new Injector().with("Helloworld");
-		Logger logger = injector.newInstance(Logger.class);
-		logger.log();
+		Class2 c2 = injector.newInstance(Class2.class);
+		c2.printInfo();
 	}
 
 }

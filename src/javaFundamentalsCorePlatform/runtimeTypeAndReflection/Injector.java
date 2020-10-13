@@ -14,6 +14,7 @@ public class Injector {
 		return this;
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T> T newInstance(final Class<T> type) {
 
 		return (T) objectGraph.computeIfAbsent(type, this::instantiate);
@@ -21,6 +22,7 @@ public class Injector {
 
 	/**
 	 * TODO
+	 * 
 	 * @param type
 	 * @return
 	 */
@@ -31,9 +33,8 @@ public class Injector {
 				throw new IllegalArgumentException("Must have one constructor");
 			}
 			Constructor<?> c = constructors[0];
-			Object instance = c.newInstance(type);
-//			return type.newInstance();
-//			Object instance = c.newInstance();
+			Object param = objectGraph.get(objectGraph.keySet().toArray()[0]);
+			Object instance = c.newInstance(param);
 			return instance;
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
