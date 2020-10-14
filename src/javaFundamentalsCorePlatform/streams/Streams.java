@@ -15,6 +15,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
+import java.util.stream.IntStream;
 
 /**
  * There's two types of streams: by byte and by character.<br\> For each of them
@@ -27,10 +28,11 @@ import java.io.Writer;
  */
 public class Streams {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 //		Streams.exampleBetterWay();
 //		Streams.exampleMultiResources();
-		Streams.doCloseThing();
+//		Streams.doCloseThing();
+		outputByteStream();
 	}
 
 	/**
@@ -39,7 +41,7 @@ public class Streams {
 	 * 
 	 * @throws IOException
 	 */
-	public void inputByteStream() throws IOException {
+	private void inputByteStream() throws IOException {
 		// See all the direct known subclasses in order to see all objects available for
 		// that
 		InputStream stream = new ByteArrayInputStream(("myString").getBytes());
@@ -70,7 +72,7 @@ public class Streams {
 	 * 
 	 * @throws IOException
 	 */
-	public void inputCharStream() throws IOException {
+	private void inputCharStream() throws IOException {
 		// See all the direct known subclasses in order to see all objects available for
 		// that
 		Reader reader = new StringReader("myString");
@@ -101,19 +103,32 @@ public class Streams {
 	 * 
 	 * @throws IOException
 	 */
-	public void outputByteStream() throws IOException {
+	private static void outputByteStream() throws IOException {
 
-		OutputStream outputStream = new ByteArrayOutputStream();
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
 		byte byteVal = 100;
 
 		outputStream.write(byteVal);
+		byte b[] = outputStream.toByteArray();
+//		for (int x = 0; x < b.length; x++) {
+//			System.out.print((char) b[x] + "   ");
+//		}
 
 		// Same way to write an array
-		byte[] byteBuffer = { 100, (byte) 200, (byte) 300 };
+		byte[] bytes = new byte[137];
 
-		outputStream.write(byteBuffer);
+		int[] entiers = IntStream.range(0, 137).toArray();
+		for (int i = 0; i < entiers.length; i++) {
+			bytes[i] = (byte) entiers[i];
+		}
 
+		// TODO Pourquoi utiliser outputStream au lieu d'utiliser directement les tableau de byte ??
+		outputStream.write(bytes);
+		b = outputStream.toByteArray();
+		for (int x = 0; x < b.length; x++) {
+//			System.out.println((char) b[x]);
+		}
 	}
 
 	/**
@@ -122,7 +137,7 @@ public class Streams {
 	 * 
 	 * @throws IOException
 	 */
-	public void outputCharStream() throws IOException {
+	private static void outputCharStream() throws IOException {
 
 		Writer writer = new CharArrayWriter();
 		char charVal = 'a';
@@ -133,10 +148,9 @@ public class Streams {
 
 		String string = "myString";
 		writer.write(string);
-
 	}
 
-	public static void simpleExample() {
+	private static void simpleExample() {
 		char[] charBuf = new char[8];
 		int length;
 		Reader reader = null;
@@ -162,7 +176,7 @@ public class Streams {
 
 	}
 
-	public static void exampleBetterWay() {
+	private static void exampleBetterWay() {
 		char[] charBuf = new char[8];
 		int length;
 		try (Reader reader = Helper.openReader("resources/file1.txt")) {
@@ -178,7 +192,7 @@ public class Streams {
 
 	}
 
-	public static void exampleMultiResources() {
+	private static void exampleMultiResources() {
 		char[] charBuf = new char[8];
 		int length;
 		try (Reader reader = Helper.openReader("resources/file1.txt");
@@ -215,7 +229,7 @@ public class Streams {
 	 * @param in
 	 * @throws IOException
 	 */
-	public void doChain(InputStream in) throws IOException {
+	private static void doChain(InputStream in) throws IOException {
 		int length;
 		char[] charBuff = new char[128];
 		// InputStreamReader doesn't care if the passed stream is fileReader,
@@ -229,7 +243,7 @@ public class Streams {
 
 	}
 
-	public void bufferedStream() {
+	private static void bufferedStream() {
 
 		try (BufferedReader br = new BufferedReader(new FileReader("resources/file1.txt"))) {
 
@@ -246,7 +260,7 @@ public class Streams {
 
 	}
 
-	public void writeData(String[] data) throws IOException {
+	private static void writeData(String[] data) throws IOException {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter("resources/file1.txt"))) {
 			for (String s : data) {
 				bw.write(s);
@@ -256,15 +270,14 @@ public class Streams {
 		}
 	}
 
-	public void readData() throws IOException {
+	private static void readData() throws IOException {
 		try (BufferedReader bw = new BufferedReader(new FileReader("resources/file1.txt"))) {
 			String inValue;
-			while ((inValue = bw.readLine())!= null) {
+			while ((inValue = bw.readLine()) != null) {
 				System.out.println(inValue);
 
 			}
 		}
 	}
-	
-	
+
 }
