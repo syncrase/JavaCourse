@@ -15,6 +15,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -34,6 +35,10 @@ public class Streams {
 //		Streams.exampleMultiResources();
 //		Streams.doCloseThing();
 		outputByteStream();
+
+		// java streams
+		IntStream.range(0, 5).boxed().collect(Collectors.toList());
+
 	}
 
 	/**

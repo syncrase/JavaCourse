@@ -10,8 +10,13 @@ package javaFundamentalsCorePlatform.basicConcepts.objectOriented.markerInterfac
  * <li>Cloneable</li>
  * <li>EventListener</li>
  * <li>Remote</li>
+ * <li>TrheadSafe</li>
  * <li>...</li>
  * </ul>
+ * 
+ * In other word, like annotations, a marker interface convey metadata about a
+ * class. Annotations are often considered to be the better option to mark a
+ * class
  * 
  * @author syncrase
  *
