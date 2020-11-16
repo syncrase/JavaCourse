@@ -1,6 +1,30 @@
 package javaFundamentalsCorePlatform.basicConcepts.objectOriented;
 
-public interface IVehicle {
+import javaFundamentalsCorePlatform.basicConcepts.objectOriented.markerInterface.MarkerInterface;
+
+public interface IVehicle extends MarkerInterface {
+
+	/******************************************************************************
+	 * Traditional use of interface. Just declaring signatures. <br>
+	 * These method are implicitly abstract & public
+	 ******************************************************************************/
+
+	int getZero();
+
+	public int myMethod();
+
+	abstract int getWeightPounds();
+
+	public abstract int getOne();
+
+	/*
+	 * public, abstract, default, static and strictfp
+	 */
+
+	/******************************************************************************
+	 * Interface can declare default methods<br>
+	 * These method are implicitly public
+	 ******************************************************************************/
 
 	/**
 	 * <h2>Returns the max speed based on conditions</h2> <br>
@@ -27,6 +51,9 @@ public interface IVehicle {
 	 */
 	default double getSpeedMph(double timeSec, int horsePower, RoadCondition roadCondition,
 			TireCondition tireCondition) {
+
+		getPrivateZero();
+
 		// Because the Engine method is only called by the getSpeedMph method =>
 		// method-local inner class
 		class Engine {
@@ -46,10 +73,41 @@ public interface IVehicle {
 		return engine.getSpeedMph(timeSec) * roadCondition.getValue() * tireCondition.getValue();
 	}
 
-	abstract int getWeightPounds();
+	/******************************************************************************
+	 * Interface can declare private methods Available since Java 9
+	 ******************************************************************************/
 
+	private int getPrivateZero() {
+		return 0;
+	}
+
+	/******************************************************************************
+	 * Interface can declare static methods
+	 ******************************************************************************/
+
+	private static int getPrivateStaticZero() {
+		return 0;
+	}
+
+	static int getSomething() {
+		return getPrivateStaticZero();
+	}
+
+	/******************************************************************************
+	 * Interface can declare public constants
+	 ******************************************************************************/
+
+	String MY_CONSTANT0 = "qsd";
+	final String MY_CONSTANT1 = "qsd";
+	static final String MY_CONSTANT2 = "qsd";
+	public static final String MY_CONSTANT3 = "qsd";
+
+	/******************************************************************************
+	 * Interface can declare enums
+	 ******************************************************************************/
 	enum RoadCondition {
 		DRY(1.0), WET(0.2), SNOW(0.04);
+
 		private double value;
 
 		RoadCondition(double value) {
@@ -63,6 +121,7 @@ public interface IVehicle {
 
 	enum TireCondition {
 		NEW(1.0), WORN(0.2);
+
 		private double value;
 
 		TireCondition(double value) {

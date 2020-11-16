@@ -18,10 +18,11 @@ import java.io.Writer;
 import java.util.stream.IntStream;
 
 /**
- * There's two types of streams: by byte and by character.<br\> For each of them
- * there're two way to read the contained values:<br\> 1 - Read one by one and
- * cast the int returned into the right type (byte or char)<br\> 2 - Read an
- * array of byte or char by passing the empty array in parameter<br\>
+ * There's two types of streams: by byte and by character.<br>
+ * For each of them there're two way to read the contained values:<br>
+ * 1 - Read one by one and cast the int returned into the right type (byte or
+ * char)<br>
+ * 2 - Read an array of byte or char by passing the empty array in parameter<br>
  * 
  * @author Pierre
  *
@@ -123,7 +124,8 @@ public class Streams {
 			bytes[i] = (byte) entiers[i];
 		}
 
-		// TODO Pourquoi utiliser outputStream au lieu d'utiliser directement les tableau de byte ??
+		// TODO Pourquoi utiliser outputStream au lieu d'utiliser directement les
+		// tableau de byte ??
 		outputStream.write(bytes);
 		b = outputStream.toByteArray();
 		for (int x = 0; x < b.length; x++) {

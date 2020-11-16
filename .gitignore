@@ -35,3 +35,5 @@ myapp**
 .classpath
 .project
 .settings/
+
+serialized/

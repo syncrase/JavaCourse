@@ -1,8 +1,5 @@
 package javaFundamentalsCorePlatform.basicConcepts.objectOriented;
 
-import javaFundamentalsCorePlatform.basicConcepts.objectOriented.IVehicle.RoadCondition;
-import javaFundamentalsCorePlatform.basicConcepts.objectOriented.IVehicle.TireCondition;
-
 public class Vehicle implements IVehicle {
 	private int weightPounds;
 
@@ -42,5 +39,23 @@ public class Vehicle implements IVehicle {
 //			System.out.println(v + " => " + v.getValue());
 //			System.out.println(RoadCondition.SNOW.equals(v));
 //		}
+	}
+
+	@Override
+	public int myMethod() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getZero() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getOne() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
