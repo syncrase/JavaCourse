@@ -1,9 +1,8 @@
-package javaFundamentalsCorePlatform.basicConcepts.objectOriented;
+package javaFundamentalsCorePlatform.basicConcepts.objectOriented.interfaces.interfaceDeclaration;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.Serializable;
 
-import javaFundamentalsCorePlatform.basicConcepts.objectOriented.markerInterface.MarkerInterface;
+import javaFundamentalsCorePlatform.basicConcepts.objectOriented.interfaces.markerInterface.MarkerInterface;
 
 /******************************************************************************
  * strictfp is a keyword in java used for restricting floating-point
@@ -14,11 +13,19 @@ import javaFundamentalsCorePlatform.basicConcepts.objectOriented.markerInterface
 public strictfp interface IExampleInterface extends MarkerInterface {
 
 	/******************************************************************************
-	 * Traditional use of interface. Just declaring signatures. <br>
-	 * These method are implicitly abstract & public <br>
-	 * All these methods below are equivalent
+	 * Traditional use of interface. <br>
+	 * <ul>
+	 * <li>Just declare signatures. These method are implicitly abstract &
+	 * public</li>
+	 * <li>nest PUBLIC STATIC classes which can be final</li>
+	 * <li>nest PUBLIC STATIC interfaces which can be static. Only nested interfaces
+	 * can be static.</li>
+	 * </ul>
+	 * <br>
+	 * 
 	 ******************************************************************************/
 
+	// All these methods below are equivalent
 	int getInt();
 
 	public int getPublicInt();
@@ -26,6 +33,82 @@ public strictfp interface IExampleInterface extends MarkerInterface {
 	abstract int getAbstractInt();
 
 	public abstract int getPublicAbstracInt();
+
+	/******************************************************************************
+	 * Nested classes<br>
+	 * Common use cases :
+	 * <ul>
+	 * <li>defining objects that are received or returned by the enclosing interface
+	 * methods. Typically data holding structures</li>
+	 * <li>when an interface has to throw custom exceptions. You the keep the
+	 * exceptions with their associated interface</li>
+	 * <li>Provide a default implementation of the interface <a href=
+	 * "https://stackoverflow.com/questions/3427073/java-interface-implementation-pair/3442218#3442218">source</a></li>
+	 * <li></li>
+	 * </ul>
+	 * 
+	 *****************************************************************************/
+
+	// Implicitly public & static (obviously)
+	class MyClass implements IExampleInterface {
+		@Override
+		public int getInt() {
+			return 0;
+		}
+
+		@Override
+		public int getPublicInt() {
+			return 0;
+		}
+
+		@Override
+		public int getAbstractInt() {
+			return 0;
+		}
+
+		@Override
+		public int getPublicAbstracInt() {
+			return 0;
+		}
+	}
+
+	static class MyStaticClass {
+		static void initializeMyClass(Object obj, String str) {
+			initializeMyClass2(obj, str);
+		}
+
+		private static void initializeMyClass2(Object obj, String str) {
+		}
+	}
+
+	final static class MyFinalStaticClass {
+		static void initializeMyClass(Object obj, String str) {
+		}
+
+		private void initializeMyClass2(Object obj, String str) {
+		}
+
+		public void initializeMyClass3(Object obj, String str) {
+			initializeMyClass2(obj, str);
+		}
+	}
+
+	public static abstract class Abstract implements Serializable {
+		// the default abstract implementation
+	}
+
+	/******************************************************************************
+	 * Nested interfaces
+	 *****************************************************************************/
+
+	interface Interface1 {
+
+	}
+
+	// For example : cf. Map.Entry<K,V>
+	static interface Interface2 {
+
+	}
 
 	/******************************************************************************
 	 * Interface can declare public constants. <br>
@@ -66,7 +149,7 @@ public strictfp interface IExampleInterface extends MarkerInterface {
 	 * <article>
 	 * <h3>H3 title</h3>
 	 * <p>
-	 * a paragraph
+	 * Offer the backward compatibility
 	 * </p>
 	 * <p>
 	 * another paragraph

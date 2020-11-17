@@ -16,7 +16,7 @@ public class RunnableAdder implements Runnable {
 		this.outfile = outfile;
 	}
 
-	public int doAdd() throws IOException {
+	private int doAdd() throws IOException {
 		int total = 0;
 		String line = "";
 		try(BufferedReader reader = Files.newBufferedReader(Paths.get(infile))){

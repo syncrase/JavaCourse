@@ -1,6 +1,13 @@
 package javaFundamentalsCorePlatform.basicConcepts.objectOriented.classesDeclaration;
 
-public class NestedClassExample {
+/**
+ * A final class cannot be extended<br>
+ * A final method cannot be overrided<br>
+ * 
+ * @author syncrase
+ *
+ */
+final public class NestedClassExample {
 
 	public static void main(String[] args) {
 

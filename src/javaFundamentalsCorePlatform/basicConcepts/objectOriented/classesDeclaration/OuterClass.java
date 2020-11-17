@@ -105,7 +105,7 @@ public class OuterClass {
 	/*
 	 * An inner class in a serializable class must also be serializable
 	 */
-	public class NestedClass implements Serializable {
+	public class NestedClass extends AClass implements Serializable {
 		/**
 		 * 
 		 */
@@ -114,13 +114,18 @@ public class OuterClass {
 		public void print() {
 			System.out.println("Message from nested class");
 		}
+
+		@Override
+		public void publicAbstractVoidMethod() {
+
+		}
 	}
 
 	/*
 	 * A class nested in a serializable class must also be serializable<br>
 	 * 
 	 */
-	public static class StaticNestedClass implements Serializable {
+	public static class StaticNestedClass extends AClass implements Serializable {
 		/**
 		 * 
 		 */
@@ -128,6 +133,11 @@ public class OuterClass {
 
 		public void print() {
 			System.out.println("Message from static nested class : " + OuterClass.privateStaticFinalLong2);
+		}
+
+		@Override
+		public void publicAbstractVoidMethod() {
+
 		}
 	}
 }

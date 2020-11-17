@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.objectOriented.markerInterface;
+package javaFundamentalsCorePlatform.basicConcepts.objectOriented.interfaces.markerInterface;
 
 import java.io.Serializable;
 

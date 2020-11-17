@@ -23,16 +23,12 @@ public class Main {
 				"./file5.out.txt", "./file6.out.txt", };
 
 		Thread[] threads = new Thread[infiles.length];
-//		try {
+
 		for (int i = 0; i < infiles.length; i++) {
 			RunnableAdder adder = new RunnableAdder(infiles[i], outfiles[i]);
 
-			// DON'T USE THIS
-			// adder.doAdd();
-			// BUT A THREAD
 			threads[i] = new Thread(adder);
 			threads[i].start();
-
 		}
 
 		for (Thread t : threads) {
@@ -42,10 +38,12 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
 
+		// With lambda expression type is inferred from the surrounding code
+		new Thread(() -> System.out.println("run")).start();
+		// So, no need to reference the Runnable interface
+		Runnable r = () -> System.out.println("run");
+		new Thread(r).start();
 	}
 
 	private static void wayToUseRunnableThreads() {
@@ -92,7 +90,7 @@ public class Main {
 				System.out.println("Total: " + value);
 			} catch (ExecutionException e) {// Exception raised by Adder
 				Throwable addEx = e.getCause();
-				//...
+				// ...
 			} catch (Exception e) {// non-Adder Exception
 
 			}
