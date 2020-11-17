@@ -1,7 +1,6 @@
-package javaFundamentalsCorePlatform.designpattern.creational.builder;
+package javaFundamentalsCorePlatform.designpattern.creational.builder.nBuildersByTBB;
 
-import javaFundamentalsCorePlatform.designpattern.creational.builder.builders.AbstractBuilder;
-import javaFundamentalsCorePlatform.designpattern.creational.builder.builders.AbstractBuilder.ToBeBuilt;
+import javaFundamentalsCorePlatform.designpattern.creational.builder.nBuildersByTBB.AbstractBuilder.ToBeBuilt;
 
 public class BuildDirectedByDev {
 

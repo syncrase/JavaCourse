@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.designpattern.creational.builder.builders;
+package javaFundamentalsCorePlatform.designpattern.creational.builder.nBuildersByTBB;
 
 public class Builder2 extends AbstractBuilder {
 
