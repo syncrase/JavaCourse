@@ -28,9 +28,9 @@ public class FileBasicsImpl extends FilesBasics {
 	public List<String> getAllLines(String filePath) {
 		List<String> readAllLines = super.getAllLines(filePath);
 
-		// Vérifie que la ligne n'est pas coupée à cause du caractère '/' et sioui,
+		// Vï¿½rifie que la ligne n'est pas coupï¿½e ï¿½ cause du caractï¿½re '/' et sioui,
 		// reconstitu
-		// Spécifique au format d'export de Kezia II
+		// Spï¿½cifique au format d'export de Kezia II
 		List<String> readAllLines2 = new ArrayList<String>();
 		String tampon = "";
 		for (String s : readAllLines) {

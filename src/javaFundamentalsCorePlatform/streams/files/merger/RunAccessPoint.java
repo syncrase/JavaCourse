@@ -20,7 +20,7 @@ public class RunAccessPoint {
 //		counter.start();
 
 		try {
-			// 1/ récupération du tableau ordonné, depuis le fichier texte, contenant
+			// 1/ rï¿½cupï¿½ration du tableau ordonnï¿½, depuis le fichier texte, contenant
 			// tous les noms de colonne
 			logger.warn("Initialization of 'files/in/export.xls'");
 			IFileType manipulator1 = MergeableFileFactory.getMergeableFile("files/in/export.xls");
@@ -30,21 +30,21 @@ public class RunAccessPoint {
 
 			logger.warn("Initialization of 'files/in/ETAT_DU_STOCK.xls'");
 			IFileType manipulator2 = MergeableFileFactory.getMergeableFile("files/in/ETAT_DU_STOCK.xls");
-			String[] columnCorrespondance2 = { "", "", "", "", "", "", "", "Qté en Stock", "", "" };
+			String[] columnCorrespondance2 = { "", "", "", "", "", "", "", "Qtï¿½ en Stock", "", "" };
 			manipulator2.setMapping(columnCorrespondance2);
 
 //			logger.warn("Initialization of 'files/in/ipf_product (1).csv'");
 //			IFileType manipulator3 = MergeableFileFactory.getMergeableFile("files/in/ETAT_DU_STOCK.xls");
-//			String[] columnCorrespondance3 = { "", "", "", "", "", "", "", "Qté en Stock", "", "" };
+//			String[] columnCorrespondance3 = { "", "", "", "", "", "", "", "Qtï¿½ en Stock", "", "" };
 //			manipulator3.setMapping(columnCorrespondance3);
 
 			// 3/ Enregistrement du mapping entre les deux tables, ie table de
-			// correspondance clé valeur (clé: nom dans la table d'entrée; valeur: nom dans
-			// la table de sortie) UI facile à faire?
-			// Prend quelque chose dans la table d'entrée pour le mettre dans la table de
+			// correspondance clï¿½ valeur (clï¿½: nom dans la table d'entrï¿½e; valeur: nom dans
+			// la table de sortie) UI facile ï¿½ faire?
+			// Prend quelque chose dans la table d'entrï¿½e pour le mettre dans la table de
 			// sortie
 			// => Construction du tableau contenant les index des colonnes du tableau
-			// d'entrée qui m'intéressent, dont la longueur égale celle du tableau de sortie
+			// d'entrï¿½e qui m'intï¿½ressent, dont la longueur ï¿½gale celle du tableau de sortie
 			//
 			// correspondance entre le format prestashop et le format haxia
 			// "Product ID"; IDART
@@ -59,13 +59,13 @@ public class RunAccessPoint {
 			// Position LOCATION
 			// index will be the index of the OUT file, value is the index in the IN file
 			// where the real value is. The value is a kind of pointer
-			// 4/ Génération de la table de sortie contenant toutes les valeurs désirées
-			// génération de la ligne contenant les noms des colonnes
-			// génération des lignes contenant les données dumpées depuis le fichier
-			// d'entrée
+			// 4/ Gï¿½nï¿½ration de la table de sortie contenant toutes les valeurs dï¿½sirï¿½es
+			// gï¿½nï¿½ration de la ligne contenant les noms des colonnes
+			// gï¿½nï¿½ration des lignes contenant les donnï¿½es dumpï¿½es depuis le fichier
+			// d'entrï¿½e
 
 			logger.warn("Initialize the merger");
-			// récupération du format du fichier de sorti
+			// rï¿½cupï¿½ration du format du fichier de sorti
 			Merger merger = new Merger();
 			IFileType desiredLayout = MergeableFileFactory.getMergeableFile("files/in/prestashop_product_export.csv");
 			desiredLayout.loadTitles();
