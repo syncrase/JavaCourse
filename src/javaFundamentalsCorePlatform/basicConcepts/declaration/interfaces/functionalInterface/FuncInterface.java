@@ -7,13 +7,13 @@ package javaFundamentalsCorePlatform.basicConcepts.declaration.interfaces.functi
  *
  */
 @FunctionalInterface
-public interface FuncInterface {
+public interface FuncInterface<T> {
 
 	/**
 	 * Implicitly abstract<br>
 	 * Only abstract method authorized in the functional interface
 	 */
-	public void doSomething(String str, int i, double d);
+	public T doSomething(T i, T d);
 
 	default void qsd() {
 
