@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections;
+package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
 
 /**
  * Compared by value

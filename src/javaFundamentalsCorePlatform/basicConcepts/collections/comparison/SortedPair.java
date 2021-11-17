@@ -1,6 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.generics;
-
-import javaFundamentalsCorePlatform.basicConcepts.collections.MyComparableClass;
+package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
 
 /**
  * <T extends Comparable<T>> means that passed values implements Comparable and
@@ -38,9 +36,7 @@ public class SortedPair<T extends Comparable<T>> {
 			// Second and first are equals
 			this.first = first;
 			this.second = first;
-
 		}
-
 	}
 
 	public T getFirst() {

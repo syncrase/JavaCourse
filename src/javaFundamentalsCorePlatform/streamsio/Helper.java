@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.streams;
+package javaFundamentalsCorePlatform.streamsio;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

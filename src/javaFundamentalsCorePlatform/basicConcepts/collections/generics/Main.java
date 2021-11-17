@@ -9,6 +9,8 @@ public class Main {
 
 	public static class StringList extends ArrayList<String> {
 
+		private static final long serialVersionUID = 1L;
+
 	}
 
 	public static void main(String[] args) {
