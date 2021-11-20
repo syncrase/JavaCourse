@@ -10,6 +10,13 @@ import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * TODO https://www.geeksforgeeks.org/strings-in-java/
+ * https://www.baeldung.com/java-string
+ * 
+ * @author syncrase
+ *
+ */
 public class Strings {
 
 	/**
