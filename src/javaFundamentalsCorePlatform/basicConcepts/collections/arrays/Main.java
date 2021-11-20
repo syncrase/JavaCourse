@@ -23,5 +23,6 @@ public class Main {
 		for (String str2 : myArray) {
 
 		}
+		// TODO quelle sont toutes les manières d'itérer sur un array
 	}
 }

@@ -28,7 +28,7 @@ public class Strings {
 //			System.out.println(e.getClass().getSimpleName() + " --> " + e.getMessage());
 //		}
 //		regexExample();
-		patternAndMatcherExample();
+//		patternAndMatcherExample();
 	}
 
 	private static void stringJoinerExample() {
@@ -58,6 +58,14 @@ public class Strings {
 		sj4.add("");
 		sResult4 = sj4.toString();
 		System.out.println("empty string added: " + sResult4);
+	}
+
+	private static void stringBuilderExample() {
+		// TODO utilisation du StringBuilder
+	}
+
+	private static void concatenationExample() {
+		// TODO concaténer une String
 	}
 
 	/**
@@ -158,8 +166,8 @@ public class Strings {
 
 	/**
 	 * more on pattern http://bit.ly/java8pattern ___________________________
-	 * tutorial http://bit.ly/javaregextutorial _____________________________
-	 * test regex online https://regex101.com
+	 * tutorial http://bit.ly/javaregextutorial _____________________________ test
+	 * regex online https://regex101.com
 	 */
 	private static void patternAndMatcherExample() {
 		String testString = "apple, apple and orange please";

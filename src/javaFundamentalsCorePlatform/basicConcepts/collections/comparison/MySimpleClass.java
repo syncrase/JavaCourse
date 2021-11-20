@@ -10,6 +10,12 @@ public class MySimpleClass {
 		this.value = value;
 	}
 
+	public MySimpleClass(MySimpleClass sc) {
+		super();
+		this.label = sc.label;
+		this.value = sc.value;
+	}
+
 	/*
 	 * Compare the value field
 	 * 

@@ -11,72 +11,20 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+
+import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.Duplicator;
 
 public class Main {
 
 	public static void main(String[] args) {
-		removalExample();
-		conversionExample();
 		comparableAndComparator();
-		mapExample();
-		sortedMapExample();
-	}
-
-	private static void removalExample() {
-		ArrayList<MySimpleClass> list = new ArrayList<>();
-
-		MySimpleClass c1 = new MySimpleClass("abc", "1");
-		MySimpleClass c2 = new MySimpleClass("abc", "2");
-		MySimpleClass c3 = new MySimpleClass("qsd", "1");
-		list.add(c1);
-		list.add(c2);
-		list.add(c3);
-
-		for (MySimpleClass m : list) {// 121
-			System.out.print(m.getValue());
-		}
-
-		list.remove(c3);
-		System.out.print(System.getProperty("line.separator"));
-
-		for (MySimpleClass m : list) { // 21 -> the first object was removed because of the equals method which return
-										// true for the first object
-			System.out.print(m.getValue());
-		}
-
-		list.removeIf(m -> m.getLabel().equals("abc") && m.getValue().contentEquals("1"));
-	}
-
-	private static void conversionExample() {
-		// Collection to array
-		ArrayList<MySimpleClass> list = new ArrayList<>();
-
-		list.add(new MySimpleClass("abc", "1"));
-		list.add(new MySimpleClass("aze", "2"));
-		list.add(new MySimpleClass("abc", "3"));
-
-		MySimpleClass[] a1;
-		// These two notations are equivalents
-		a1 = list.toArray(new MySimpleClass[0]);
-		a1 = (MySimpleClass[]) list.toArray();
-
-		MySimpleClass[] a2 = new MySimpleClass[3];
-		MySimpleClass[] a3 = list.toArray(a2);
-
-		if (a2 == a3) {
-			System.out.println("Arrays equality just check the length !");
-		}
-
-		// Array to Collection
-		MySimpleClass[] myArray = { new MySimpleClass("abc", "1"), new MySimpleClass("aze", "2"),
-				new MySimpleClass("abc", "3") };
-
-		// https://stackoverflow.com/questions/3317381/what-is-the-difference-between-collection-and-list-in-java
-		Collection<MySimpleClass> collection = Arrays.asList(myArray);
-		List<MySimpleClass> list1 = Arrays.asList(myArray);
+//		mapExample();
+//		sortedMapExample();
 	}
 
 	private static void comparableAndComparator() {
+		// TODO ranger
 		/**
 		 * Use of Comparable<T> interface
 		 */
