@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.lists;
+package javaFundamentalsCorePlatform.basicConcepts.collections.hash;
 
 /**
  * Référence :

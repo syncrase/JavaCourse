@@ -1,5 +1,7 @@
 package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
 
+import java.util.Objects;
+
 public class MySimpleClass {
 
 	private String label, value;
@@ -30,11 +32,19 @@ public class MySimpleClass {
 		if (getClass() != obj.getClass())
 			return false;
 		MySimpleClass other = (MySimpleClass) obj;
-		if (value == null && other.value != null) {
-			return false;
-		} else if (!value.equals(other.value))
-			return false;
-		return true;
+//		if (value == null && other.value != null) {
+//			return false;
+//		} else if (!value.equals(other.value))
+//			return false;
+//		return true;
+		// Compare only the value
+		// Objects.equals(label, other.label) &&
+		return Objects.equals(value, other.value);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(label, value);
 	}
 
 	@Override

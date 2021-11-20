@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.Duplicator;
+import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.ListComparatorUtil;
 
 /**
  * En plus de ces différentes méthode il existe des third party libraries qui

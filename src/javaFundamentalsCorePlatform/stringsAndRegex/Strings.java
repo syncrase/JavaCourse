@@ -64,6 +64,10 @@ public class Strings {
 		// TODO utilisation du StringBuilder
 	}
 
+	private static void stringBufferExample() {
+		// TODO utilisation du StringBuffer
+	}
+
 	private static void concatenationExample() {
 		// TODO concaténer une String
 	}

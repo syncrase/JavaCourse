@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.lists;
+package javaFundamentalsCorePlatform.basicConcepts.collections.hash;
 
 import java.util.ArrayList;
 import java.util.List;

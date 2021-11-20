@@ -1,6 +1,6 @@
 package javaFundamentalsCorePlatform.basicConcepts;
 
-public class Types {
+public class PrimitiveTypes {
 
 	public static void main(String[] args) {
 
