@@ -10,8 +10,17 @@ public class Implementation implements IExampleInterface {
 		Implementation vehicle = new Implementation();
 		System.out.println(vehicle.getString());
 
-		// Use the anonymous method declaration to instantiate directly the interface
+		// Use the anonymous class declaration to instantiate directly the interface
 		IExampleInterface ia = new IExampleInterface() {
+
+			public void testCalls() {
+				String a0 = this.MY_STRING;
+				String a1 = this.MY_FINAL_STRING;
+				String a2 = this.MY_STATIC_FINAL_STRING;
+				String a3 = this.MY_PUBLIC_STATIC_FINAL_STRING;
+				int i = IExampleInterface.getSomething();
+				int i1 = IExampleInterface.getOtherthing();
+			}
 
 			@Override
 			public int getInt() {

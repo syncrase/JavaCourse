@@ -10,18 +10,23 @@ import javaFundamentalsCorePlatform.basicConcepts.declaration.interfaces.markerI
  * operations in the floating-point variable. <br>
  * Available since Java 2
  ******************************************************************************/
+/**
+ * In interface we can :<br>
+ * <ul>
+ * <li>Just declare signatures. These method are implicitly abstract &
+ * public</li>
+ * <li>nest PUBLIC STATIC classes which can be final</li>
+ * <li>nest interfaces implicitly public.</li>
+ * <li>Nested interfaces can be static.</li>
+ * </ul>
+ * 
+ * @author syncrase
+ *
+ */
 public strictfp interface IExampleInterface extends MarkerInterface {
 
 	/******************************************************************************
 	 * Traditional use of interface. <br>
-	 * <ul>
-	 * <li>Just declare signatures. These method are implicitly abstract &
-	 * public</li>
-	 * <li>nest PUBLIC STATIC classes which can be final</li>
-	 * <li>nest PUBLIC STATIC interfaces which can be static. Only nested interfaces
-	 * can be static.</li>
-	 * </ul>
-	 * <br>
 	 * 
 	 ******************************************************************************/
 
@@ -72,27 +77,6 @@ public strictfp interface IExampleInterface extends MarkerInterface {
 		}
 	}
 
-	static class MyStaticClass {
-		static void initializeMyClass(Object obj, String str) {
-			initializeMyClass2(obj, str);
-		}
-
-		private static void initializeMyClass2(Object obj, String str) {
-		}
-	}
-
-	final static class MyFinalStaticClass {
-		static void initializeMyClass(Object obj, String str) {
-		}
-
-		private void initializeMyClass2(Object obj, String str) {
-		}
-
-		public void initializeMyClass3(Object obj, String str) {
-			initializeMyClass2(obj, str);
-		}
-	}
-
 	public static abstract class Abstract implements Serializable {
 		// the default abstract implementation
 	}
@@ -115,10 +99,10 @@ public strictfp interface IExampleInterface extends MarkerInterface {
 	 * Available since Java 7
 	 ******************************************************************************/
 
-	String MY_CONSTANT0 = "qsd";
-	final String MY_CONSTANT1 = "qsd";
-	static final String MY_CONSTANT2 = "qsd";
-	public static final String MY_CONSTANT3 = "qsd";
+	String MY_STRING = "qsd";
+	final String MY_FINAL_STRING = "qsd";
+	static final String MY_STATIC_FINAL_STRING = "qsd";
+	public static final String MY_PUBLIC_STATIC_FINAL_STRING = "qsd";// Implicitly public
 
 	/******************************************************************************
 	 * Interface can declare static & default methods <br>
@@ -144,29 +128,6 @@ public strictfp interface IExampleInterface extends MarkerInterface {
 		return getPrivateStaticZero();
 	}
 
-	/**
-	 * <h2>H2 title</h2> <br>
-	 * <article>
-	 * <h3>H3 title</h3>
-	 * <p>
-	 * Offer the backward compatibility
-	 * </p>
-	 * <p>
-	 * another paragraph
-	 * </p>
-	 * </article> <br>
-	 * <aside>
-	 * <p>
-	 * Link aside <a href="http://www.google.com">here</a>.
-	 * </p>
-	 * </aside>
-	 * 
-	 * @param timeSec
-	 * @param horsePower
-	 * @param roadCondition
-	 * @param tireCondition
-	 * @return
-	 */
 	default String getString() {
 		getPrivateZero();
 		return "default String";

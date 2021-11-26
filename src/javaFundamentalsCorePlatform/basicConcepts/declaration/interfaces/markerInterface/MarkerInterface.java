@@ -12,7 +12,7 @@ package javaFundamentalsCorePlatform.basicConcepts.declaration.interfaces.marker
  * <li>Cloneable</li>
  * <li>EventListener</li>
  * <li>Remote</li>
- * <li>TrheadSafe</li>
+ * <li>ThreadSafe</li>
  * <li>...</li>
  * </ul>
  * 

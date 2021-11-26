@@ -1,8 +1,9 @@
 package javaFundamentalsCorePlatform.basicConcepts.declaration.interfaces.markerInterface;
 
 import java.io.Serializable;
+import java.util.EventListener;
 
-public class MultiMarkedClass implements Serializable, Cloneable, MarkerInterface {
+public class MultiMarkedClass implements Serializable, Cloneable, MarkerInterface, EventListener {
 	/**
 	 * 
 	 */
