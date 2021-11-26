@@ -34,7 +34,7 @@ public class Builder2 extends AbstractBuilder {
 		return this.product;
 	}
 
-	public class ToBeBuilt2 {
+	public class ToBeBuilt2 extends TobeBuilt {
 
 		private String type1;
 		private String type2;

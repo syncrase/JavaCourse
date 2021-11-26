@@ -2,8 +2,12 @@ package javaFundamentalsCorePlatform.streams.files.basics;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public abstract class FilesBasics {
 
@@ -19,10 +23,8 @@ public abstract class FilesBasics {
 	}
 
 	/**
-	 * @param filePath
-	 *            Path of the file
-	 * @param params
-	 *            eol other than the default "\n"
+	 * @param filePath Path of the file
+	 * @param params   eol other than the default "\n"
 	 * @return Returns the full text contained in the file
 	 */
 	public String getContentAsString(String filePath, String... params) {
@@ -38,8 +40,7 @@ public abstract class FilesBasics {
 
 	/**
 	 * 
-	 * @param filePath
-	 *            The relative filepath from which the line is extracted
+	 * @param filePath The relative filepath from which the line is extracted
 	 * @return The first line of the file as a String
 	 */
 	public String getFirstLineAsString(String filePath) {
@@ -60,5 +61,20 @@ public abstract class FilesBasics {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void walkThrough(Path pathSource, Path pathArchive) throws IOException {
+		Stream<Path> walk = Files.walk(pathSource);
+		walk.sorted(Comparator.reverseOrder()).filter(f -> !f.equals(pathSource)).forEach(path -> {
+			try {
+				pathArchive.resolve(pathSource.relativize(path));
+				Files.copy(path, pathArchive.resolve(path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+//                log.error("Archivage de fichier {} echoué", path);
+			}
+		});
+
+		walk.close();
+
 	}
 }

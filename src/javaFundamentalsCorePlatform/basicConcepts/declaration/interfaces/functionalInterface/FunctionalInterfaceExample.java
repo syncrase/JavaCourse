@@ -62,11 +62,6 @@ class UseFunctionalInterface<T> {
 		this.list = new ArrayList<T>();
 	}
 
-	public UseFunctionalInterface<T> display() {
-		System.out.println(list);
-		return this;
-	}
-
 	public UseFunctionalInterface<T> add(List<T> collect) {
 		list.addAll(collect);
 		return this;
@@ -77,6 +72,11 @@ class UseFunctionalInterface<T> {
 		for (int i = 0; i < list.size(); i++) {
 			list.set(i, fi.doSomething(list.get(i), list.get(i)));
 		}
+		return this;
+	}
+
+	public UseFunctionalInterface<T> display() {
+		System.out.println(list);
 		return this;
 	}
 
