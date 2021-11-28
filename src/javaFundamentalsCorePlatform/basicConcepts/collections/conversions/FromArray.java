@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
 public class FromArray {
 
@@ -15,15 +15,15 @@ public class FromArray {
 
 	private static void toCollection() {
 		// Array to Collection
-		MySimpleClass[] myArray = { //
-				new MySimpleClass("abc", "1"), //
-				new MySimpleClass("aze", "2"), //
-				new MySimpleClass("abc", "3") //
+		SimpleClass[] myArray = { //
+				new SimpleClass("abc", "1"), //
+				new SimpleClass("aze", "2"), //
+				new SimpleClass("abc", "3") //
 		};
 
 		// https://stackoverflow.com/questions/3317381/what-is-the-difference-between-collection-and-list-in-java
-		Collection<MySimpleClass> collection = Arrays.asList(myArray);
-		List<MySimpleClass> list1 = Arrays.asList(myArray);
+		Collection<SimpleClass> collection = Arrays.asList(myArray);
+		List<SimpleClass> list1 = Arrays.asList(myArray);
 	}
 
 }

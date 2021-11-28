@@ -1,5 +1,7 @@
 package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
 
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.MyComparableClass;
+
 /**
  * <T extends Comparable<T>> means that passed values implements Comparable and
  * that they are comparable between them

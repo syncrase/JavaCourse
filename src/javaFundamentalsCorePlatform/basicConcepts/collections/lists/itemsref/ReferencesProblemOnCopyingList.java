@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
 public class ReferencesProblemOnCopyingList {
 
-	static ArrayList<MySimpleClass> list = new ArrayList<>();
+	static ArrayList<SimpleClass> list = new ArrayList<>();
 	static {
-		list.add(new MySimpleClass("abc", "1"));
-		list.add(new MySimpleClass("aze", "2"));
-		list.add(new MySimpleClass("abc", "3"));
+		list.add(new SimpleClass("abc", "1"));
+		list.add(new SimpleClass("aze", "2"));
+		list.add(new SimpleClass("abc", "3"));
 	}
 
 	public static void main(String[] args) {

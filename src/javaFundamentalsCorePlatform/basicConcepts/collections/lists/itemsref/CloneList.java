@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.Duplicator;
 import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.ListComparatorUtil;
 
 /**
- * En plus de ces différentes méthode il existe des third party libraries qui
+ * En plus de ces diffï¿½rentes mï¿½thode il existe des third party libraries qui
  * permette le clonage<br>
  * ou l'insterface Cloneable<br>
  * Source : https://www.geeksforgeeks.org/how-to-clone-a-list-in-java/<br>
- * Attention : une liste clonée ne clone pas les éléments
+ * Attention : une liste clonï¿½e ne clone pas les ï¿½lï¿½ments
  * 
  * @author syncrase
  *
  */
 public class CloneList extends ListComparatorUtil {
 
-	static ArrayList<MySimpleClass> list = new ArrayList<>();
+	static ArrayList<SimpleClass> list = new ArrayList<>();
 //	static ListComparatorUtil listComparator = new ListComparatorUtil();
 
 	static {
-		list.add(new MySimpleClass("a", "1"));
-		list.add(new MySimpleClass("b", "2"));
-		list.add(new MySimpleClass("c", "3"));
+		list.add(new SimpleClass("a", "1"));
+		list.add(new SimpleClass("b", "2"));
+		list.add(new SimpleClass("c", "3"));
 	}
 
 	public static void main(String[] args) {
@@ -38,52 +38,52 @@ public class CloneList extends ListComparatorUtil {
 	}
 
 	/**
-	 * Quatrième approche : utiliser ArrayList#clone()<br>
-	 * List n'implémente pas Cloneable
+	 * Quatriï¿½me approche : utiliser ArrayList#clone()<br>
+	 * List n'implï¿½mente pas Cloneable
 	 */
-	private static void copyWithClone(ArrayList<MySimpleClass> list1) {
-		ArrayList<MySimpleClass> copiedList = (ArrayList<MySimpleClass>) list1.clone();
+	private static void copyWithClone(ArrayList<SimpleClass> list1) {
+		ArrayList<SimpleClass> copiedList = (ArrayList<SimpleClass>) list1.clone();
 
 		applyChangesAndPrintChecks(list1, copiedList);
 	}
 
 	/**
-	 * Troisième approche : utiliser Collection#stream()
+	 * Troisiï¿½me approche : utiliser Collection#stream()
 	 */
-	private static void copyWithStream(ArrayList<MySimpleClass> list1) {
-		ArrayList<MySimpleClass> copiedList = (ArrayList<MySimpleClass>) list1.stream().collect(Collectors.toList());
+	private static void copyWithStream(ArrayList<SimpleClass> list1) {
+		ArrayList<SimpleClass> copiedList = (ArrayList<SimpleClass>) list1.stream().collect(Collectors.toList());
 
 		applyChangesAndPrintChecks(list1, copiedList);
 	}
 
 	/**
-	 * Première approche : utiliser le constructeur
+	 * Premiï¿½re approche : utiliser le constructeur
 	 */
-	private static void copyWithConstructor(ArrayList<MySimpleClass> list1) {
-		ArrayList<MySimpleClass> copiedList = new ArrayList<>(list1); // list1 == list2 : false
+	private static void copyWithConstructor(ArrayList<SimpleClass> list1) {
+		ArrayList<SimpleClass> copiedList = new ArrayList<>(list1); // list1 == list2 : false
 
 		applyChangesAndPrintChecks(list1, copiedList);
 	}
 
 	/**
-	 * Deuxième approche : utiliser addAll
+	 * Deuxiï¿½me approche : utiliser addAll
 	 */
-	private static void copyWithAddAll(ArrayList<MySimpleClass> list1) {
-		ArrayList<MySimpleClass> copiedList = new ArrayList<MySimpleClass>();
+	private static void copyWithAddAll(ArrayList<SimpleClass> list1) {
+		ArrayList<SimpleClass> copiedList = new ArrayList<SimpleClass>();
 		copiedList.addAll(list1);
 
 		applyChangesAndPrintChecks(list1, copiedList);
 	}
 
 	/**
-	 * Méthode pour copier complètement une liste. Les items contenus dans les liste
-	 * copiées et résultantes sont différents
+	 * Mï¿½thode pour copier complï¿½tement une liste. Les items contenus dans les liste
+	 * copiï¿½es et rï¿½sultantes sont diffï¿½rents
 	 */
 	private static void copyingList() {
 
 		// Collection to array
 
-		MySimpleClass[] tableau;
+		SimpleClass[] tableau;
 		// Transformation d'une liste en un tableau
 		Duplicator duplicator = new Duplicator();
 		tableau = duplicator.arrayFromList(list);
@@ -98,11 +98,11 @@ public class CloneList extends ListComparatorUtil {
 		// MySimpleClass[] a2 = new MySimpleClass[3];
 //		MySimpleClass[] a2 = list.toArray(new MySimpleClass[0]);
 
-		// Solution : recréer les items pour avoir de nouvelles références
+		// Solution : recrï¿½er les items pour avoir de nouvelles rï¿½fï¿½rences
 //		MySimpleClass[] a2 = list.stream().map(sc -> new MySimpleClass(sc)).collect(Collectors.toList())
 //				.toArray(new MySimpleClass[0]);
 
-		for (MySimpleClass msc : tableau) {
+		for (SimpleClass msc : tableau) {
 			msc.setLabel(msc.getLabel() + msc.getLabel());
 		}
 

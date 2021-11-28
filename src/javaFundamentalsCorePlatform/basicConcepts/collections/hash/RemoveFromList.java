@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
 /**
  * Remove in item from a list calls the equals() method of the list.<br>
@@ -20,18 +20,18 @@ public class RemoveFromList {
 
 	public static void main(String[] args) {
 
-		ArrayList<MySimpleClass> list = new ArrayList<>();
+		ArrayList<SimpleClass> list = new ArrayList<>();
 
-		MySimpleClass c1 = new MySimpleClass("a", "1");
-		MySimpleClass c2 = new MySimpleClass("b", "2");
-		MySimpleClass c3 = new MySimpleClass("c", "1");
+		SimpleClass c1 = new SimpleClass("a", "1");
+		SimpleClass c2 = new SimpleClass("b", "2");
+		SimpleClass c3 = new SimpleClass("c", "1");
 		list.add(c1);
 		list.add(c2);
 		list.add(c3);
 
 		displayList(list);
 
-		MySimpleClass c4 = new MySimpleClass("d", "1");
+		SimpleClass c4 = new SimpleClass("d", "1");
 		System.out.println("new MySimpleClass(\"d\", \"1\") : " + c4);
 		System.out.println("list.contains(c4) : " + list.contains(c4));
 
@@ -47,7 +47,7 @@ public class RemoveFromList {
 		list.removeIf(m -> m.getLabel().equals("a") && m.getValue().contentEquals("1"));
 	}
 
-	private static void displayList(ArrayList<MySimpleClass> list) {
+	private static void displayList(ArrayList<SimpleClass> list) {
 		System.out.println("all items are : "
 				+ list.stream().map(item -> item.toString()).collect(Collectors.joining(", ", "[", "]")));
 	}

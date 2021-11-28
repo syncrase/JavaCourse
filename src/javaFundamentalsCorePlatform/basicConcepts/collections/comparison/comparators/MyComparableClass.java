@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
+package javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators;
 
 /**
  * Compared by value
@@ -9,32 +9,14 @@ package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
 public class MyComparableClass implements Comparable<MyComparableClass> {
 
 	private String label, value;
+	private Double theDouble;
+	private Integer theInt;
 
 	public MyComparableClass(String label, String value) {
 		super();
 		this.label = label;
 		this.value = value;
 	}
-
-//	/* Compare the label field
-//	 * @see java.lang.Object#equals(java.lang.Object)
-//	 */
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		MyClass other = (MyClass) obj;
-//		if (label == null) {
-//			if (other.label != null)
-//				return false;
-//		} else if (!label.equals(other.label))
-//			return false;
-//		return true;
-//	}
 
 	/*
 	 * Compare the value field
@@ -77,6 +59,22 @@ public class MyComparableClass implements Comparable<MyComparableClass> {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public Double getTheDouble() {
+		return theDouble;
+	}
+
+	public void setTheDouble(Double theDouble) {
+		this.theDouble = theDouble;
+	}
+
+	public Integer getTheInt() {
+		return theInt;
+	}
+
+	public void setTheInt(Integer theInt) {
+		this.theInt = theInt;
 	}
 
 	/*

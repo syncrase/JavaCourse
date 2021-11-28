@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.comparison;
+package javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators;
 
 import java.util.Comparator;
 

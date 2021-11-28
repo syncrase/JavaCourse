@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
 /**
  * These methods return an entirely new list of elements
@@ -14,16 +14,16 @@ import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpl
  */
 public class Duplicator {
 
-	public MySimpleClass[] arrayFromList(List<MySimpleClass> list) {
+	public SimpleClass[] arrayFromList(List<SimpleClass> list) {
 		return list.stream()//
-				.map(sc -> new MySimpleClass(sc))//
+				.map(sc -> new SimpleClass(sc))//
 				.collect(Collectors.toList())//
-				.toArray(new MySimpleClass[0]);
+				.toArray(new SimpleClass[0]);
 	}
 
-	public MySimpleClass[] arrayFromArray(MySimpleClass[] array) {
+	public SimpleClass[] arrayFromArray(SimpleClass[] array) {
 		return Arrays.stream(array)//
 				.collect(Collectors.toList())//
-				.toArray(new MySimpleClass[0]);
+				.toArray(new SimpleClass[0]);
 	}
 }

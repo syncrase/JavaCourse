@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.IntFunction;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
 /**
  * Exemples pour changer le type d'une collections mais garder les mémes
@@ -14,11 +14,11 @@ import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpl
  */
 public class ArrayConversion {
 
-	static ArrayList<MySimpleClass> list = new ArrayList<>();
+	static ArrayList<SimpleClass> list = new ArrayList<>();
 	static {
-		list.add(new MySimpleClass("abc", "1"));
-		list.add(new MySimpleClass("aze", "2"));
-		list.add(new MySimpleClass("abc", "3"));
+		list.add(new SimpleClass("abc", "1"));
+		list.add(new SimpleClass("aze", "2"));
+		list.add(new SimpleClass("abc", "3"));
 	}
 
 	public static void main(String[] args) {
@@ -42,12 +42,12 @@ public class ArrayConversion {
 		// is in unnamed module of loader 'app')
 //		MySimpleClass[] tableau = (MySimpleClass[]) list.toArray();
 
-		MySimpleClass[] tableau = new MySimpleClass[0];
+		SimpleClass[] tableau = new SimpleClass[0];
 //		tableau = 
 		tableau = list.toArray(tableau);
 
 		// Modification des valeurs du tableau résultant
-		for (MySimpleClass msc : tableau) {
+		for (SimpleClass msc : tableau) {
 			msc.setLabel(msc.getLabel() + msc.getLabel());
 		}
 
@@ -67,11 +67,12 @@ public class ArrayConversion {
 	}
 
 	private static void overrideToArrayExample() {
-		MySimpleClass[] tableau1 = (MySimpleClass[]) list.toArray(new IntFunction<MySimpleClass[]>() {
+		// TODO syso
+		SimpleClass[] tableau1 = (SimpleClass[]) list.toArray(new IntFunction<SimpleClass[]>() {
 			@Override
-			public MySimpleClass[] apply(int value) {
+			public SimpleClass[] apply(int value) {
 //				return new MySimpleClass(list.get(value));
-				return new MySimpleClass[value];
+				return new SimpleClass[value];
 			}
 		});
 	}
@@ -81,12 +82,12 @@ public class ArrayConversion {
 		/*
 		 * array to list
 		 */
-		MySimpleClass[] myArray = { new MySimpleClass("abc", "1"), new MySimpleClass("aze", "2"),
-				new MySimpleClass("abc", "3") };
+		SimpleClass[] myArray = { new SimpleClass("abc", "1"), new SimpleClass("aze", "2"),
+				new SimpleClass("abc", "3") };
 
 		// https://stackoverflow.com/questions/3317381/what-is-the-difference-between-collection-and-list-in-java
 //		Collection<MySimpleClass> collection = Arrays.asList(myArray);
-		List<MySimpleClass> list1 = Arrays.asList(myArray);
+		List<SimpleClass> list1 = Arrays.asList(myArray);
 		// Comparaison des références des éléments de la liste et du tableau
 		for (int i = 0; i < myArray.length; i++) {
 			System.out.println("Les références des éléments sont les mêmes ? " + (list1.get(i) == myArray[i]));

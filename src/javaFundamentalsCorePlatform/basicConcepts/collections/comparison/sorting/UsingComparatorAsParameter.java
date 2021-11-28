@@ -1,13 +1,13 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.comparison.ordering;
+package javaFundamentalsCorePlatform.basicConcepts.collections.comparison.sorting;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MyComparableClass;
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.ReverseComparator;
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.SimpleClassComparator;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.MyComparableClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.ReverseComparator;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClassComparator;
 
 public class UsingComparatorAsParameter {
 
@@ -39,12 +39,12 @@ public class UsingComparatorAsParameter {
 
 	private static void usingCustomComparatorOnNonComparableItems() {
 		// Example with a class which implement Comparable<MyComparableClass>
-		List<MySimpleClass> list2 = new ArrayList<>();
-		list2.add(new MySimpleClass("aaa", "22"));
-		list2.add(new MySimpleClass("rrr", "11"));
-		list2.add(new MySimpleClass("ccc", "33"));
+		List<SimpleClass> list2 = new ArrayList<>();
+		list2.add(new SimpleClass("aaa", "22"));
+		list2.add(new SimpleClass("rrr", "11"));
+		list2.add(new SimpleClass("ccc", "33"));
 		// list's min value
-		MySimpleClass objWithSmallestValue = getMinValue(list2, new SimpleClassComparator());
+		SimpleClass objWithSmallestValue = getMinValue(list2, new SimpleClassComparator());
 		System.out.println("min : " + objWithSmallestValue.toString());
 
 		// list's reversed min value, so the max
@@ -53,14 +53,14 @@ public class UsingComparatorAsParameter {
 	}
 
 	private static void usingOnTheFlyDefinedComparator() {
-		List<MySimpleClass> list2 = new ArrayList<>();
-		list2.add(new MySimpleClass("aaa", "22"));
-		list2.add(new MySimpleClass("rrr", "11"));
-		list2.add(new MySimpleClass("ccc", "33"));
+		List<SimpleClass> list2 = new ArrayList<>();
+		list2.add(new SimpleClass("aaa", "22"));
+		list2.add(new SimpleClass("rrr", "11"));
+		list2.add(new SimpleClass("ccc", "33"));
 		// list's min value with lambda comparator
-		MySimpleClass objWithSmallestValue = (MySimpleClass) getMinValue(list2, new Comparator<MySimpleClass>() {
+		SimpleClass objWithSmallestValue = (SimpleClass) getMinValue(list2, new Comparator<SimpleClass>() {
 			@Override
-			public int compare(final MySimpleClass o1, final MySimpleClass o2) {
+			public int compare(final SimpleClass o1, final SimpleClass o2) {
 				return o1.getLabel().compareToIgnoreCase(o2.getLabel());
 			}
 		});

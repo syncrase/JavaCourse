@@ -2,25 +2,25 @@ package javaFundamentalsCorePlatform.basicConcepts.collections.conversions;
 
 import java.util.ArrayList;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.MySimpleClass;
+import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
 public class ListToArray {
 
 	public static void main(String[] args) {
 		// Collection to array
-		ArrayList<MySimpleClass> list = new ArrayList<>();
+		ArrayList<SimpleClass> list = new ArrayList<>();
 
-		list.add(new MySimpleClass("abc", "1"));
-		list.add(new MySimpleClass("aze", "2"));
-		list.add(new MySimpleClass("abc", "3"));
+		list.add(new SimpleClass("abc", "1"));
+		list.add(new SimpleClass("aze", "2"));
+		list.add(new SimpleClass("abc", "3"));
 
-		MySimpleClass[] a1;
+		SimpleClass[] a1;
 		// These two notations are equivalents
-		a1 = list.toArray(new MySimpleClass[0]);
-		a1 = (MySimpleClass[]) list.toArray();
+		a1 = list.toArray(new SimpleClass[0]);
+		a1 = (SimpleClass[]) list.toArray();
 
-		MySimpleClass[] a2 = new MySimpleClass[3];
-		MySimpleClass[] a3 = list.toArray(a2);
+		SimpleClass[] a2 = new SimpleClass[3];
+		SimpleClass[] a3 = list.toArray(a2);
 
 		if (a2 == a3) {
 			// lists are the same one
