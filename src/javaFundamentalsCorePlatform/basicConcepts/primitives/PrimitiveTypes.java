@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts;
+package javaFundamentalsCorePlatform.basicConcepts.primitives;
 
 public class PrimitiveTypes {
 

@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.immuable;
+package javaFundamentalsCorePlatform.basicConcepts.immutables;
 
 public class Main {
 
