@@ -1,4 +1,4 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref;
+package javaFundamentalsCorePlatform.basicConcepts.collections.copy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

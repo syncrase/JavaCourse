@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.Duplicator;
+import javaFundamentalsCorePlatform.basicConcepts.collections.copy.utils.Duplicator;
 
 public class Main {
 

@@ -1,12 +1,12 @@
-package javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref;
+package javaFundamentalsCorePlatform.basicConcepts.collections.copy;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
-import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.Duplicator;
-import javaFundamentalsCorePlatform.basicConcepts.collections.lists.itemsref.utils.ListComparatorUtil;
+import javaFundamentalsCorePlatform.basicConcepts.collections.copy.utils.Duplicator;
+import javaFundamentalsCorePlatform.basicConcepts.collections.copy.utils.ListComparatorUtil;
 
 /**
  * En plus de ces diff�rentes m�thode il existe des third party libraries qui
@@ -35,6 +35,8 @@ public class CloneList extends ListComparatorUtil {
 //		copyWithAddAll(list);
 //		copyWithStream(list);
 //		copyWithClone(list);
+
+		List<SimpleClass> lList = List.copyOf(list); // Unmodifiable
 	}
 
 	/**

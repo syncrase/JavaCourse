@@ -172,7 +172,15 @@ public class StreamEndExemples {
 		Map<String, String> myList2 = mySet.stream().collect(toMap(//
 				Function.identity(), // mandatory key mapper
 				s -> s.toString(), // mandatory value mapper
-				(a, b) -> a.toString() + b.toString()// merge function (merge values when keys are equals)
+				(oldValue, newValue) -> oldValue.toString() + newValue.toString(), // optional merge function (merge
+																					// values when keys are equals)
+				TreeMap::new// optional supplier
+		));
+
+		// Without merge function
+		myList2 = mySet.stream().collect(toMap(//
+				Function.identity(), // mandatory key mapper
+				s -> s.toString() // mandatory value mapper
 		));
 	}
 

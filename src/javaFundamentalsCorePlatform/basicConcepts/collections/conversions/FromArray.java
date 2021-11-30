@@ -3,6 +3,8 @@ package javaFundamentalsCorePlatform.basicConcepts.collections.conversions;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Queue;
+import java.util.Set;
 
 import javaFundamentalsCorePlatform.basicConcepts.collections.comparison.comparators.SimpleClass;
 
@@ -24,6 +26,8 @@ public class FromArray {
 		// https://stackoverflow.com/questions/3317381/what-is-the-difference-between-collection-and-list-in-java
 		Collection<SimpleClass> collection = Arrays.asList(myArray);
 		List<SimpleClass> list1 = Arrays.asList(myArray);
+//		Queue<SimpleClass> list2 = Arrays.asList(myArray);
+//		Set<SimpleClass> list3 = Arrays.asList(myArray);
 	}
 
 }
