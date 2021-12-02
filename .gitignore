@@ -31,9 +31,10 @@ doc/
 myapp**
 
 
-# Eclipse
+# IDE
 .classpath
 .project
 .settings/
+.idea
 
 serialized/
