@@ -1,15 +1,16 @@
 package javaFundamentalsCorePlatform.streams.files.merger.ioimpl;
 
+import javaFundamentalsCorePlatform.streams.files.basics.FilesBasics;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-
-import javaFundamentalsCorePlatform.streams.files.basics.FilesBasics;
 
 public class FileBasicsImpl extends FilesBasics {
 
@@ -50,7 +51,7 @@ public class FileBasicsImpl extends FilesBasics {
 	 */
 	public void write(String filePath, String content) {
 		Path path = FileSystems.getDefault().getPath(filePath);
-		Charset charset = Charset.forName("UTF-8");
+		Charset charset = StandardCharsets.UTF_8;
 		// The BufferedWriter use requires to set the project compliance to 1.7
 		try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
 			writer.write(content, 0, content.length());
