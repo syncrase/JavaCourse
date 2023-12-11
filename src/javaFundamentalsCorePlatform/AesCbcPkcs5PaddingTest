@@ -1,0 +1,97 @@
+package ciphering;
+
+import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Base64;
+
+class AesCbcPkcs5PaddingTest {
+
+    final String algorithm = "AES/CBC/PKCS5Padding";
+    final String key = "dGpm792zkU6uGMU5XHoq0r9WU0ONlcC96OMXv5HbEME=";
+    final String iv = "rAE8SocAvxzSBOn870hKTA==";
+
+    final String input = "789456123";
+    final String encryptedInput = "0OcZSlcU0PaMQzbojzVi0A==";
+
+    @Test
+    void encrypt() {
+        System.out.println("Encrypt string : " + input);
+
+        SecretKey key = getSecretKey();
+        IvParameterSpec ivParameterSpec = getIvParameterSpec();
+
+        String cipherText = AesCbcPkcs5Padding.encrypt(algorithm, input, key, ivParameterSpec);
+        System.out.println("Cipher result : " + cipherText);
+
+        Assertions.assertEquals(encryptedInput, cipherText);
+    }
+
+    @Test
+    void decrypt() {
+
+        SecretKey key = getSecretKey();
+        IvParameterSpec ivParameterSpec = getIvParameterSpec();
+
+        String algorithm = "AES/CBC/PKCS5Padding";
+        String plainText = AesCbcPkcs5Padding.decrypt(algorithm, encryptedInput, key, ivParameterSpec);
+        System.out.println(plainText);
+
+        Assertions.assertEquals(input, plainText);
+    }
+
+    @NotNull
+    private SecretKey getSecretKey() {
+        byte[] decodedKey = Base64.getDecoder().decode(key);
+        return new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
+    }
+
+    @NotNull
+    private IvParameterSpec getIvParameterSpec() {
+        byte[] decodedIv = Base64.getDecoder().decode(iv);
+        return new IvParameterSpec(decodedIv, 0, decodedIv.length);
+    }
+
+
+    @Test
+    void generateNewPair() throws NoSuchAlgorithmException {
+        SecretKey key = AesCbcPkcs5Padding.generateKey(256);
+        String keyToString = AesCbcPkcs5Padding.bytesAsString(key.getEncoded());
+        System.out.println("key : " + keyToString);
+
+        IvParameterSpec ivParameterSpec = AesCbcPkcs5Padding.generateIv();
+        String ivToString = Base64.getEncoder().encodeToString(ivParameterSpec.getIV());
+        System.out.println("iv : " + ivToString);
+
+    }
+
+    @Test
+    void applydecryption() {
+
+        SecretKey key = getSecretKey();
+        IvParameterSpec ivParameterSpec = getIvParameterSpec();
+
+        String encryptedInput = "/q1NKgcQvGEW3tVSxWSfgg==";
+        String algorithm = "AES/CBC/PKCS5Padding";
+        String plainText = AesCbcPkcs5Padding.decrypt(algorithm, encryptedInput, key, ivParameterSpec);
+        System.out.println(plainText);
+
+
+        Arrays.stream(encryptedIds).forEach(s -> {
+            String[] encryptedId = s.split(" ");
+            String decrypted = AesCbcPkcs5Padding.decrypt(algorithm, encryptedId[1], key, ivParameterSpec);
+            System.out.println(encryptedId[0] + " " + decrypted);
+        });
+
+    }
+
+    String[] encryptedIds = new String[]{
+            "15:49:43.319 iy3PXLRh4xc5n9RBOqA9sg==",
+    };
+}
