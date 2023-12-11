@@ -1,0 +1,78 @@
+package ciphering;
+
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
+import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Base64;
+
+public class AesCbcPkcs5Padding {
+
+    public static SecretKey generateKey(int n) throws NoSuchAlgorithmException {
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(n);
+        SecretKey key = keyGenerator.generateKey();
+        return key;
+    }
+
+    @Contract(" -> new")
+    public static @NotNull IvParameterSpec generateIv() {
+        byte[] iv = new byte[16];
+        new SecureRandom().nextBytes(iv);
+        return new IvParameterSpec(iv);
+    }
+
+    public static String encrypt(
+        String algorithm,
+        @NotNull String input,
+        SecretKey key,
+        IvParameterSpec iv
+    ) {
+        Cipher cipher;
+        try {
+
+            cipher = Cipher.getInstance(algorithm);
+            cipher.init(Cipher.ENCRYPT_MODE, key, iv);
+            byte[] cipherText = cipher.doFinal(input.getBytes());
+            return Base64.getEncoder()
+                .encodeToString(cipherText);
+
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException |
+                 InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+            throw new RuntimeException(e);
+        }
+//        return null;
+    }
+
+    @Contract("_, _, _, _ -> new")
+    public static @NotNull String decrypt(
+        String algorithm,
+        String cipherText,
+        SecretKey key,
+        IvParameterSpec iv) {
+
+        Cipher cipher;
+        try {
+
+            cipher = Cipher.getInstance(algorithm);
+            cipher.init(Cipher.DECRYPT_MODE, key, iv);
+            byte[] plainText = cipher.doFinal(Base64.getDecoder()
+                .decode(cipherText));
+            return new String(plainText);
+
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException |
+                 InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+            throw new RuntimeException(e);
+        }
+//        return null;
+    }
+
+    public static String bytesAsString(byte[] encoded) {
+        return Base64.getEncoder().encodeToString(encoded);
+    }
+}
